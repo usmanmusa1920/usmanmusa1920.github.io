@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="./static/media/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="./static/style.css">
+		<script src="./static/js/index.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+		<title>Usman Musa</title>
+		<script>
+			document.addEventListener("DOMContentLoaded", (event) => {
+				document.querySelectorAll("pre code").forEach((block) => {
+					hljs.highlightBlock(block);
+					const copyButton = document.getElementById("copy-button");
+					copyButton.style.display = "block";
+					copyButton.className = "copy-button";
+					copyButton.addEventListener("click", () => {
+						const textArea = document.createElement("textarea");
+						textArea.value = block.innerText;
+						document.body.appendChild(textArea);
+						textArea.select();
+						document.execCommand("copy");
+						document.body.removeChild(textArea);
+						copyButton.innerText = "Copied to clipboard!";
+					});
+				});
+			});
+			
+			// // wake down-site (on testing mode) from sleeping to live!
+			// const urls = ["https://www.site1.com", "https://www.site2.com"];
+			// const xhr = new XMLHttpRequest();
+
+			// for (i = 0; i < urls.length; i++){
+			// 	xhr.open("GET", urls[parseInt(i)], true);
+			// 	xhr.onreadystatechange = function () {
+			// 		if (xhr.readyState === 4) { // Request is complete
+			// 			if (xhr.status === 200) {
+			// 				// alert("Success")
+			// 				// console.log("Success:", JSON.parse(xhr.responseText));
+			// 			} else {
+			// 				// alert("Error")
+			// 				// console.error("Error:", xhr.statusText);
+			// 			};
+			// 		};
+			// 	};
+			// 	xhr.send();
+			// };
+		</script>
+	</head>
+
+	<body onload="base_func()">
+		<div class="container">
+			<div class="header">
+				<div class="header_col">
+					<div class="head_left">
+						<h1 class="logo"><a href="/">Usman Musa</a></h1>
+					</div>
+					
+					<div class="head_right">
+						<a href="https://linkedin.com/in/usmanmusa1920" class="link_0"><img src="./static/media/icon-linkedin.png" alt="linkedin logo"></a>
+						<a class="link_1">|</a>
+						<a href="https://github.com/usmanmusa1920" class="link_2">Github</a>
+						<a href="https://medium.com/@usmanmusa1920" class="link_3">Medium</a>
+						<a onclick="light_mode()" class="light">&#9728;</a>
+						<a onclick="dark_mode()" class="dark">&#127769;</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="main">
+				<div class="main_column">
+					<span class="main_column_inn">
+						<div class="mini">
+							<div class="mini_column">
+								<h1>Usman Musa</h1>
+								<p>Looking forward to IT and software development sector, to work, change and innovate creative digital system together with IT ally.</p>
+							</div>
+						</div>
+					</span>
+					
+					<div class="box">
+						<h1><i>Hi 👋 I'm Usman!</i></h1>
+						<div class="box_in">
+							<img src="./static/media/usman.jpg" alt="Usman picture">
+							<p onclick="setTimeout(fdk_func_timeout, 1000)" style="margin-top: 3px;">Ping <a onclick="fdk_func()" class="black">FDK</a></p>
+							<p class="fdk"><a href="https://flask-unity.readthedocs.io" class="black">Flask-Unity</a>, <a href="https://dipense.readthedocs.io" class="black">DiPense</a>, <a href="https://kyaah.readthedocs.io" class="black">Kyaah</a></p>
+						</div>
+					</div>
+
+					<div class="three_col">
+						<div>
+							<p>Review 💻 fix 🛠️ push 🚀 and release 🔗 new <b>✨v✨</b> out there!</p>
+						</div>
+					</div>
+
+					<div class="short_intro">
+						<img src="./static/media/banner.png" alt="banner image">
+						<div><p><i>Importing module of impossible into a script, might mess up the syntax.</i></p></div>
+					</div>
+					
+					<div class="three_col">
+						<div>
+							<h1>About</h1>
+						</div>
+					</div>
+
+					<div class="three_col">
+						<div>
+							<p>I'm <strong>Usman</strong>, an IT enthusiast, abstracting away complexity for developers and <strong>IT</strong> ninjas, in software & web development, and other IT related stuffs.</p>
+
+							<p class="social_icons">
+								<!-- get more icons fonts from https://icons8.com/icons/new -->
+								<a href="https://linkedin.com/in/usmanmusa1920" class="black"><img src="./static/media/icon-linkedin.png" alt="linkedin logo"></a>
+							</p>
+						</div>
+					</div>
+					<br>
+					<br>
+					
+					<div class="three_col">
+						<div>
+							<h1>Projects</h1>
+							<p>Here are some of my projects, find out more on my github, docker, and linkedin profile.</p>
+						</div>
+					</div>
+
+					<div class="three_col">
+						<div>
+							<h1><a href="https://flask-unity.readthedocs.io" class="black">Flask-Unity</a></h1>
+							<p>An extension of flask web framework that erase the complexity of structuring flask project blueprint, packages, connecting other flask extensions, database migrations, and other annoying stuffs.</p>
+						</div>
+
+						<div>
+							<h1><a href="https://dipense.readthedocs.io" class="black">DiPense</a></h1>
+							<p>An OSINT tool for IT ninjas, for reconnoitring phone number, ip address, DNS, and others. To be honest the application is free, beware with me your intent matter.</p>
+						</div>
+					</div>
+
+					<div class="three_col">
+						<div>
+							<h1><a href="https://kyaah.readthedocs.io" class="black">Kyaah</a></h1>
+							<p>Kyaah abstract away cognitive over-head of sending SMTP mail, together with other mailing operations things like, mail with file, tokens etc.</p>
+						</div>
+					</div>
+
+					<center><hr></center>
+					
+					<div class="code_div">
+						<div>
+							<pre><button type="button" id="copy-button" class="copy-button">Copy</button>
+<small><code>
+<font>$ </font><font>pip install flask-unity dipense kyaah</font>
+
+</code></small></pre>
+						</div>
+					</div>
+					<center><hr></center>
+					
+					<div class="links">
+						<a href="https://github.com/usmanmusa1920">Github</a>
+						<a href="https://hub.docker.com/u/usmanmusa">Docker</a>
+						<a href="https://medium.com/@usmanmusa1920">Medium</a>
+					</div>
+					<div class="three_col">
+						<div><p>&copy; <span id="this_year"></span> Usman Musa Website</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
