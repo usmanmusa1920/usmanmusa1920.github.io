@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'detail.css' %}">
+	<title>Usman Musa | {{post.title}}</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="banner">
+		<div class="banner_column">
+			<h1>{{post.title}}</h1>
+			<img src="{% static 'media/usman 1.jpg' %}" class="banner_column_img" alt="">
+			<small>Date created: since {{post.pub_date|date:'M d, Y'}} by <span>{{post.author.first_name}} {{post.author.last_name}}</span></small>
+			<br>
+			<small><a href="{% url 'blog:article' post.category.id %}" class="ref">@ {{post.category.title}}</a></small>
+			<hr>
+			<br>
+
+			{% if post.summary %}
+				<p>{{post.summary}}</p>
+				<br>
+			{% endif %}
+
+			{% if post.image_url %}
+				<div class="three_col">
+					<div>
+						<img src="{{post.image_url}}" alt="">
+					</div>
+				</div>
+			{% endif %}
+
+			{% if post.url_list %}
+				<p><strong>links:</strong></p>
+				{% for key, value in real_url.items %}
+					<a href="{{value}}" class="link">{{key}}</a>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.snippet %}
+				<div class="c_div">
+					<pre><small><code>{{post.snippet}}</code></small></pre>
+				</div>
+			{% endif %}
+
+			{% if request.user.is_authenticated %}
+				<br>
+				<a href="{% url 'blog:update_post' post.id %}" class="peace_back">Update</a>
+				<a class="danger_back" onclick="show_delete()">Delete post</a>
+				<br>
+				<br>
+				<span id="hidden_delete">
+				<p>Click the below link to permanently delete this post, and comments associated with it</p>
+				<a href="{% url 'blog:delete_post' post.id %}" class="danger">Yes delete</a>
+				<br>
+				<br>
+				<a class="peace_back" onclick="hide_delete()">Cancel delete</a>
+				</span>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				<div class="ss">
+					<div class="message">
+						<h1>Post comments:</h1>
+					</div>
+					{% if post_comment.paginator.count > 0 %}
+						<h1 class="s">Comments for this post</h1>
+						{% for comment in post_comment %}
+							<div class="post">
+								<h1>{{comment.full_name}}</h1>
+								<img src="{% static 'media/user.png' %}" class="banner_column_img" alt="">
+								<small>Since {{comment.timestamp|date:'M, Y'}} by <span>{{comment.email}}</span></small>
+								{% if request.user.is_authenticated %}
+									<br>
+									<small><a href="{% url 'blog:delete_comment' comment.id %}" class="danger">Delete</a></small>
+									<small><a href="{% url 'blog:mark_comment' comment.id %}" class="peace">Mark as read</a></small>
+									<hr>
+								{% endif %}
+								<br>
+								<p>{{comment.text_body}}</p>
+								<hr>
+								<small><a href="{% url 'blog:comment' comment.id %}" class="detail">Write reply</a></small>
+							</div>
+						{% endfor %}
+					{% else %}
+						<h1 class="s">No comment, be the first to comment</h1>
+					{% endif %}
+				</div>
+
+				{% if post_comment.paginator.count > 5 %}
+					<div class="paginator">
+						{% if post_comment.has_previous %}
+						<a href="?page={{post_comment.previous_page_number}}" class="page_surf"><h3>Previous</h3></a>
+						<a>...</a>
+						{% endif %}
+						{% for num in post_comment.paginator.page_range %}
+						{% if post_comment.number == num %}
+							<a href="?page={{num}}" class="page_current"><h3>{{num}}</h3></a>
+						{% elif num > post_comment.number|add:'-4' and num < post_comment.number|add:'4' %}
+							<a href="?page={{num}}" class="page_number"><h3>{{num}}</h3></a>
+						{% endif %}
+						{% endfor %}
+						{% if post_comment.has_next %}
+						<a>...</a>
+						<a href="?page={{post_comment.next_page_number}}" class="page_surf"><h3>Next</h3></a>
+						{% endif %}
+					</div>
+				{% endif %}
+				<br>
+				
+				<form method="post" class="comment">
+					{% csrf_token %}
+					<h1>Drop comment for this post</h1>
+					{% if request.user.is_authenticated %}
+						<input type="text" name="full_name" placeholder="Full name" value="{{request.user.first_name}} {{request.user.last_name}}" required>
+						<input type="email" name="email" placeholder="Email address" value="{{request.user.email}}" required>
+					{% else %}
+						<input type="text" name="full_name" placeholder="Full name" required>
+						<input type="email" name="email" placeholder="Email address" required>
+					{% endif %}
+					<textarea name="text_body" placeholder="Write comment here ..." required></textarea>
+					<button type="submit">Comment</button>
+				</form>
+				<br>
+			</div>
+			
+			<div class="side_right">
+				{% include 'include/suggestion.html' %}
+				{% include 'include/send_message.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock top %}

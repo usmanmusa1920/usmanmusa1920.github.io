@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'info.css' %}">
+	<title>Usman Musa | Search</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="mini">
+		<div class="mini_column">
+			<h1>Search Usman website</h1>
+			<form  action="{% url 'auth:search' %}" method="get"  class="search" id="search">
+				{% if search_panel == None %}
+					<input type="text" name="search_q" placeholder="Search here" required>
+				{% elif search_panel == ' ' %}
+					<input type="text" name="search_q" placeholder="Search here" required>
+				{% elif search_panel == '  ' %}
+					<input type="text" name="search_q" placeholder="Search here" required>
+				{% elif search_panel == '   ' %}
+					<input type="text" name="search_q" placeholder="Search here" required>
+				{% else %}
+					<input type="text" name="search_q" value="{{search_panel}}" placeholder="Search here" required>
+				{% endif %}
+				<button type="submit">Search</button>
+			</form>
+		</div>
+	</div>
+	
+	<div class="box">
+		{% if posts %}
+			{% if search_panel == None %}
+				<!-- pass -->
+			{% elif search_panel == ' ' %}
+				<!-- pass -->
+			{% elif search_panel == '  ' %}
+				<!-- pass -->
+			{% elif search_panel == '   ' %}
+				<!-- pass -->
+			{% else %}
+				<h1>Here is the result found for: <span class="peace">{{search_panel}}</span></h1>
+			{% endif %}
+		{% else %}
+			{% if search_panel == None %}
+				<h1>Search Usman Musa website here!</h1>
+			{% elif search_panel == ' ' %}
+				<h1>Search Usman Musa website here!</h1>
+			{% elif search_panel == '  ' %}
+				<h1>Search Usman Musa website here!</h1>
+			{% elif search_panel == '   ' %}
+				<h1>Search Usman Musa website here!</h1>
+			{% else %}
+				<h1>Result not found for: <span class="danger">{{search_panel}}</span></h1>
+			{% endif %}
+		{% endif %}
+	</div>
+
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				{% for post in posts %}
+					<div class="post">
+						{% if post.title %}
+							<h1><a href="{% url 'blog:post' post.id %}">{{post.title}}</a></h1>
+						{% endif %}
+						<img src="{% static 'media/usman 1.jpg' %}" class="banner_column_img" alt="">
+						<small>Date created: {{post.pub_date | date:'M d, Y'}} by <span>{{post.author.first_name}} {{post.author.last_name}}</span></small>
+						<br>
+						<small><a href="{% url 'blog:article' post.category.id %}" class="ref">@ {{post.category.title}}</a></small>
+						<hr>
+						<br>
+
+						{% if post.summary %}
+							{% if post.summary|length >= 220 %}
+								<p>{{post.summary|truncatechars:200}}</p>
+								<a href="{% url 'blog:post' post.id %}" class="detail">read more</a>
+							{% else %}
+								<p>{{post.summary}}</p>
+							{% endif %}
+						{% endif %}
+
+						{% if post.image_url %}
+							<div class="three_col">
+								<div>
+								<img src="{{post.image_url}}" alt="">
+								</div>
+							</div>
+						{% endif %}
+
+						{% if post.snippet %}
+							<div class="c_div">
+								<pre><small><code>{{post.snippet}}</code></small></pre>
+							</div>
+							<br>
+						{% endif %}
+
+						{% if post.comment_set.count > 1 %}
+							<small><a href="{% url 'blog:post' post.id %}" class="ref">{{post.comment_set.count}} comments</a></small>
+						{% else %}
+							<small><a href="{% url 'blog:post' post.id %}" class="ref">{{post.comment_set.count}} comment</a></small>
+						{% endif %}
+					</div>
+				{% endfor %}
+
+				{% if posts.paginator.count > 7 %}
+					<div class="paginator">
+						{% if posts.has_previous %}
+							<a href="?page={{posts.previous_page_number}}&search_q={{search_panel}}" class="page_surf"><h3>Previous</h3></a>
+							<a>...</a>
+						{% endif %}
+						{% for num in posts.paginator.page_range %}
+							{% if posts.number == num %}
+								<a href="?page={{num}}&search_q={{search_panel}}" class="page_current"><h3>{{num}}</h3></a>
+							{% elif num > posts.number|add:'-3' and num < posts.number|add:'3' %}
+								<a href="?page={{num}}&search_q={{search_panel}}" class="page_number"><h3>{{num}}</h3></a>
+							{% endif %}
+						{% endfor %}
+						{% if posts.has_next %}
+							<a>...</a>
+							<a href="?page={{posts.next_page_number}}&search_q={{search_panel}}" class="page_surf"><h3>Next</h3></a>
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+			
+			<div class="side_right">
+				<div class="list">
+					<h1>Articles:</h1>
+					{% if general_context.gen_con_category %}
+						<ul>
+						{% for category in general_context.gen_con_category %}
+							<li>
+							<p><a href="{% url 'blog:article' category.id %}">{{category.title}}</a></p>
+							</li>
+						{% endfor %}
+						</ul>
+					{% else %}
+						<h1 class="in_side_h1"><small>Articles are comming soon!</small></h1>
+					{% endif %}
+				</div>
+				{% include 'include/send_message.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock top %}

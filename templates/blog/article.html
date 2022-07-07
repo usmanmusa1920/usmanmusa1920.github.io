@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'detail.css' %}">
+	<title>Usman Musa | {{article.title}}</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="banner">
+		<div class="banner_column">
+			<h1>{{article.title}}</h1>
+			<img src="{% static 'media/usman 1.jpg' %}" class="banner_column_img" alt="">
+			<small>Date created: since {{article.pub_date|date:'M d, Y'}} by <span>{{article.publisher.first_name}} {{article.publisher.last_name}}</span></small>
+			<hr>
+			<br>
+			{% if article.description %}
+				<p>
+				{{article.description}}
+				</p>
+				<br>
+			{% endif%}
+
+			{% if article.image_url %}
+				<div class="three_col">
+					<div>
+						<img src="{{article.image_url}}" alt="">
+					</div>
+				</div>
+			{% endif %}
+
+			{% if article.url_list %}
+				<p><strong>links:</strong></p>
+				{% for key, value in real_url.items %}
+					<a href="{{value}}" class="link">{{key}}</a>
+				{% endfor %}
+			{% endif %}
+
+			{% if article.snippet %}
+				<div class="c_div">
+				<pre><small><code>{{article.snippet}}</code></small></pre>
+				</div>
+			{% else %}
+				<br>
+				<br>
+			{% endif %}
+
+			{% if request.user.is_authenticated %}
+				<form method="post" class="message">
+				{% csrf_token %}
+				<h1>Create new post:</h1>
+				<input type="text" name="title" placeholder="Title" required>
+				<textarea name="summary" placeholder="Post content"></textarea>
+				<textarea name="snippet" placeholder="Code snippet"></textarea>
+				<input type="text" name="image_url" placeholder="Image url">
+				<p>Post links (names, and values)</p>
+				<p>Links names:</p>
+				<input type="text" name="url_list_name" placeholder="Google, Apple, IBM">
+				<p>Links values:</p>
+				<input type="text" name="url_list_value" placeholder="https://www.google.com, https://www.apple.com, https://www.ibm.com">
+				<button type="submit">Create</button>
+				</form>
+				<br>
+				<a href="{% url 'blog:update_article' article.id %}" class="peace_back">Update article</a>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				{% if article_post.paginator.count > 0 %}
+					<div class="post">
+						<h1 class="s">Posts for this article</h1>
+						{% for post in article_post %}
+							<div class="post">
+								<h1><a href="{% url 'blog:post' post.id %}">{{post.title}}</a></h1>
+								<img src="{% static 'media/usman 1.jpg' %}" class="banner_column_img" alt="">
+								<small>Date created: since {{post.pub_date|date:'M d, Y'}} by <span>{{post.author.first_name}} {{post.author.last_name}}</span></small>
+								<br>
+								<small><a class="ref">@ {{post.category.title}}</a></small>
+								<hr>
+								<br>
+								{% if post.summary %}
+									{% if post.summary|length >= 220 %}
+										<p>
+										{{post.summary|truncatechars:200}} <a href="{% url 'blog:post' post.id %}" class="detail">read more</a>
+										</p>
+									{% else %}
+										<p>{{post.summary}}</p>
+									{% endif %}
+									<br>
+								{% endif %}
+
+								{% if post.image_url %}
+									<div class="three_col">
+										<div>
+										<img src="{{post.image_url}}" alt="">
+										</div>
+									</div>
+								{% endif %}
+
+								{% if post.snippet %}
+									<div class="c_div">
+										<pre><small><code>{{post.snippet}}</code></small></pre>
+									</div>
+									<br>
+								{% endif %}
+
+								{% if post.comment_set.count > 1 %}
+									<small><a class="ref">{{post.comment_set.count}} comments</a></small>
+								{% else %}
+									<!-- pass -->
+								{% endif %}
+								<small><a href="{% url 'blog:post' post.id %}" class="detail">Write comment</a></small>
+							</div>
+						{% endfor %}
+					</div>
+				{% else %}
+					<div class="post">
+						<h1 class="s">No post for this article yet</h1>
+					</div>
+				{% endif %}
+
+				{% if article_post.paginator.count > 5 %}
+					<div class="paginator">
+						{% if article_post.has_previous %}
+							<a href="?page={{article_post.previous_page_number}}" class="page_surf"><h3>Previous</h3></a>
+							<a>...</a>
+						{% endif %}
+						{% for num in article_post.paginator.page_range %}
+							{% if article_post.number == num %}
+								<a href="?page={{num}}" class="page_current"><h3>{{num}}</h3></a>
+							{% elif num > article_post.number|add:'-4' and num < article_post.number|add:'4' %}
+								<a href="?page={{num}}" class="page_number"><h3>{{num}}</h3></a>
+							{% endif %}
+						{% endfor %}
+						{% if article_post.has_next %}
+							<a>...</a>
+							<a href="?page={{article_post.next_page_number}}" class="page_surf"><h3>Next</h3></a>
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+			
+			<div class="side_right">
+				{% include 'include/suggestion.html' %}
+				{% include 'include/send_message.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock top %}

@@ -1,0 +1,10 @@
+<!-- This is message form include file. -->
+
+<form method="post" action="{% url 'auth:send_message' %}" class="message">
+	{% csrf_token %}
+	<h1>Send your message:</h1>
+	<input type="text" name="full_name" id="dm_page_js_val_id_full_name" placeholder="Your full name" required>
+	<input type="email" name="email" id="dm_page_js_val_id_email" placeholder="Your email address" required>
+	<textarea name="text_body" id="dm_page_js_val_id_text_body" placeholder="Type your message here ..." required></textarea>
+	<button type="submit" onclick="val_required_fields('dm_page')">Send</button>
+</form>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="./static/media/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="./static/style.css">
+		<script src="./static/js/index.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+		<title>Usman Musa</title>
+		<script>
+			document.addEventListener("DOMContentLoaded", (event) => {
+				document.querySelectorAll("pre code").forEach((block) => {
+					hljs.highlightBlock(block);
+					const copyButton = document.getElementById("copy-button");
+					copyButton.style.display = "block";
+					copyButton.className = "copy-button";
+					copyButton.addEventListener("click", () => {
+						const textArea = document.createElement("textarea");
+						textArea.value = block.innerText;
+						document.body.appendChild(textArea);
+						textArea.select();
+						document.execCommand("copy");
+						document.body.removeChild(textArea);
+						copyButton.innerText = "Copied to clipboard!";
+					});
+				});
+			});
+			
+			// // wake direct-message & siwes-portal site to live!
+			// const urls = ["https://usmanmusa.onrender.com/direct/message/", "https://siwesportal.onrender.com"];
+			// const xhr = new XMLHttpRequest();
+
+			// for (i = 0; i < urls.length; i++){
+			// 	xhr.open("GET", urls[parseInt(i)], true);
+			// 	xhr.onreadystatechange = function () {
+			// 		if (xhr.readyState === 4) { // Request is complete
+			// 			if (xhr.status === 200) {
+			// 				// alert("Success")
+			// 				// console.log("Success:", JSON.parse(xhr.responseText));
+			// 			} else {
+			// 				// alert("Error")
+			// 				// console.error("Error:", xhr.statusText);
+			// 			};
+			// 		};
+			// 	};
+			// 	xhr.send();
+			// };
+		</script>
+	</head>
+
+	<body onload="base_func()">
+		<div class="container">
+			<div class="header">
+				<div class="header_col">
+					<div class="head_left">
+						<h1 class="logo"><a href="/">Usman Musa</a></h1>
+					</div>
+					
+					<div class="head_right">
+						<a href="https://twitter.com/usmanmusa1920" class="link_0"><img src="./static/media/icon-twitter.png" alt="twitter logo"></a>
+						<a class="link_1">|</a>
+						<a href="https://linkedin.com/in/usmanmusa1920" class="link_2">LinkedIn</a>
+						<a href="mailto:usmanmusa1920@gmail.com" class="link_3">Email</a>
+						<a onclick="light_mode()" class="light">&#9728;</a>
+						<a onclick="dark_mode()" class="dark">&#127769;</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="main">
+				<div class="main_column">
+					<span class="main_column_inn">
+						<div class="mini">
+							<div class="mini_column">
+								<h1>Usman Musa</h1>
+								<p>Looking forward to IT and software development sector, to work, change and innovate creative digital system together with IT ally.</p>
+							</div>
+						</div>
+					</span>
+					
+					<div class="box">
+						<h1><i>Hi 👋 I'm Usman!</i></h1>
+						<div class="box_in">
+							<img src="./static/media/usman 2.jpg" alt="Usman picture">
+							<p onclick="setTimeout(fdk_func_timeout, 1000)" style="margin-top: 3px;">Nascent Projects <a onclick="fdk_func()" class="black">FDK</a></p>
+							<p class="fdk"><a href="https://flask-unity.readthedocs.io" class="black">Flask-Unity</a>, <a href="https://dipense.readthedocs.io" class="black">DiPense</a>, <a href="https://kyaah.readthedocs.io" class="black">Kyaah</a></p>
+						</div>
+					</div>
+
+					<div class="three_col">
+						<div>
+							<p>Review 💻 fix 🛠️ push 🚀 and release 🔗 new <b>✨v✨</b> out there!</p>
+						</div>
+					</div>
+
+					<div class="short_intro">
+						<img src="./static/media/banner.png" alt="banner image">
+						<div><p><i>Importing module of impossible into a script, might mess up the syntax.</i></p></div>
+					</div>
+					
+					<div class="three_col">
+						<div>
+							<h1>About</h1>
+						</div>
+					</div>
+
+					<div class="three_col">
+						<div>
+							<p>I'm <strong>Usman</strong>, an IT enthusiast, abstracting away complexity for developers and <strong>IT</strong> ninjas, in software & web development, and other IT related stuffs. Certified ✅ <b>3MTT</b> fellow under <b>Software Development</b>.</p>
+
+							<p>Most of my snippets are python base, I also use shell script for automating daily task, in other to make myself <strong>DRY</strong>. Other tech stacks that I use can be found on my LinkedIn profile.</p>
+							
+							<p>You can find my projects on <strong><a href="https://github.com/usmanmusa1920" class="black">GitHub</a></strong> & <strong><a href="https://hub.docker.com/u/usmanmusa" class="black">Docker</a></strong> repository!, while my articles and post can be access on Medium and Twitter, below are some of my projects, also others can be found on my LinkedIn profile.</p>
+
+							<p class="social_icons">
+								<!--  🎓🎓🎓 &#127891 🎓🎓🎓 -->
+								<!-- get more icons fonts from https://icons8.com/icons/new -->
+								<a href="mailto:usmanmusa1920@gmail.com" class="black"><img src="./static/media/icon-email.png" alt="mail logo"></a>
+								<a href="https://twitter.com/usmanmusa1920" class="black"><img src="./static/media/icon-twitter.png" alt="twitter logo"></a>
+								<a href="https://linkedin.com/in/usmanmusa1920" class="black"><img src="./static/media/icon-linkedin.png" alt="linkedin logo"></a>
+							</p>
+						</div>
+					</div>
+					<center><hr></center>
+					
+					<div class="code_div">
+						<div>
+							<pre><button type="button" id="copy-button" class="copy-button">Copy</button>
+<small><code>
+<font>>>> </font><font color="purple">import</font> <font color="purple">kyaah</font>
+
+<font>>>> </font><font color="red">payload = dict(</font>
+<font>... </font><font color="#06989A">		sender = "sender@gmail.com",</font>
+<font>... </font><font color="blue">		receiver = ["receiver@gmail.com"],</font>
+<font>... </font><font color="purple">		subject = "Hellow world!",</font>
+<font>... </font><font color="green">		body = "Lorem ipsum dolor sit amet adipisicing elit, rerum voluptate ipsum volupt.",</font>
+<font>... </font><font color="#06989A">		password = "*********",</font>
+<font>>>> </font><font color="green">)</font>
+
+<font>>>> </font><font color="green">kyaah.send(credentials=payload)</font>
+
+</code></small></pre>
+						</div>
+					</div>
+					<center><hr></center>
+					
+					<!-- Read more docs: https://developers.tiktok.com/doc/embed-creator-profiles?enter_method=left_navigation -->
+					<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@usmanmusa1920" data-unique-id="usmanmusa1920" data-embed-type="creator" style="max-width: 780px; min-width: 288px;" > <section> <a target="_blank" href="https://www.tiktok.com/@usmanmusa1920?refer=creator_embed">Tiktok @UsmanMusa1920</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+					
+					<div class="links">
+						<a href="https://twitter.com/usmanmusa1920">Twitter</a>
+						<a href="https://github.com/usmanmusa1920">Github</a>
+						<a href="https://medium.com/@usmanmusa1920">Medium</a>
+						<a href="https://usmanmusa.onrender.com/direct/message/">Direct Message</a>
+					</div>
+					<div class="three_col">
+						<div><p>&copy; <span id="this_year"></span> Usman Musa Website</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

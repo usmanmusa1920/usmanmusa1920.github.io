@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'form.css' %}">
+	<title>Usman Musa | logout</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="box">
+		<h1>Logout</h1>
+	</div>
+  
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				<form class="message" id="auth">
+					<h1>You logout:</h1>
+					<p>Hey user you just logged out, you can also login back or navigate to the website without login in back</p>
+					<br>
+					<a href="{% url 'auth:login' %}" class="peace_back">Login back</a>
+					<br>
+					<br>
+				</form>
+				<br>
+			</div>
+
+			<div class="side_right">
+				{% include 'include/send_message.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock top %}

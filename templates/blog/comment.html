@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'detail.css' %}">
+	<title>Usman Musa | Comment</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="banner">
+		<div class="banner_column">
+			<h1>{{comment.full_name}}</h1>
+			<img src="{% static 'media/user.png' %}" class="banner_column_img" alt="">
+			<small>Since {{comment.timestamp|date:'M d, Y'}} by <span>{{comment.email}}</span></small>
+			<br>
+			<small><a href="{% url 'blog:post' comment.post.id %}" class="ref">@ {{comment.post.title}}</a></small>
+			<hr>
+			<br>
+			<p>{{comment.text_body}}</p>
+			<br>
+			<hr>
+			<br>
+			{% if request.user.is_authenticated %}
+				<a class="danger_back" onclick="show_delete()">Delete comment</a>
+				<br>
+				<br>
+				<span id="hidden_delete">
+				<p>Click the below link to permanently delete this comment, and replies associated with it</p>
+				<a href="#" class="danger">Yes delete</a>
+				<br>
+				<br>
+				<a class="peace_back" onclick="hide_delete()">Cancel delete</a>
+				</span>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				<div class="ss">
+					<div class="message">
+						<h1>Comment replies:</h1>
+					</div>
+					{% if comment_reply.paginator.count > 0 %}
+						<h1 class="s">Reply for this comment</h1>
+						{% for reply in comment_reply %}
+							<div class="post">
+								<h1>{{reply.full_name}}</h1>
+								<img src="{% static 'media/user.png' %}" class="banner_column_img" alt="">
+								<small>Since {{reply.timestamp|date:'M d, Y'}} by <span>{{reply.email}}</span></small>
+								{% if request.user.is_authenticated %}
+									<br>
+									<small><a href="{% url 'blog:delete_reply' reply.id %}" class="danger">Delete</a></small>
+									<hr>
+								{% endif %}
+								<br>
+								<p>{{reply.text_body}}</p>
+								<hr>
+							</div>
+						{% endfor %}
+					{% else %}
+						<h1 class="s">No reply, be the first to reply</h1>
+					{% endif %}
+				</div>
+
+				{% if comment_reply.paginator.count > 5 %}
+					<div class="paginator">
+						{% if comment_reply.has_previous %}
+							<a href="?page={{comment_reply.previous_page_number}}" class="page_surf"><h3>Previous</h3></a>
+							<a>...</a>
+						{% endif %}
+						{% for num in comment_reply.paginator.page_range %}
+							{% if comment_reply.number == num %}
+								<a href="?page={{num}}" class="page_current"><h3>{{num}}</h3></a>
+							{% elif num > comment_reply.number|add:'-4' and num < comment_reply.number|add:'4' %}
+								<a href="?page={{num}}" class="page_number"><h3>{{num}}</h3></a>
+							{% endif %}
+						{% endfor %}
+						{% if comment_reply.has_next %}
+							<a>...</a>
+							<a href="?page={{comment_reply.next_page_number}}" class="page_surf"><h3>Next</h3></a>
+						{% endif %}
+					</div>
+				{% endif %}
+				<br>
+
+				<form method="post" class="comment">
+					{% csrf_token %}
+					<h1>Reply for this comment</h1>
+					{% if request.user.is_authenticated %}
+						<input type="text" name="full_name" placeholder="Full name" value="{{request.user.first_name}} {{request.user.last_name}}" required>
+						<input type="email" name="email" placeholder="Email address" value="{{request.user.email}}" required>
+					{% else %}
+						<input type="text" name="full_name" placeholder="Full name" required>
+						<input type="email" name="email" placeholder="Email address" required>
+					{% endif %}
+					<textarea name="text_body" placeholder="Write reply here ..." required></textarea>
+					<button type="submit">reply</button>
+				</form>
+			</div>
+			
+			<div class="side_right">
+				{% include 'include/suggestion.html' %}
+				{% include 'include/send_message.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock top %}

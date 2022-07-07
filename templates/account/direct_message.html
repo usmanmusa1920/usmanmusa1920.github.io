@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'detail.css' %}">
+	<title>Usman Musa | Direct Message</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="banner">
+		<div class="banner_column">
+			{% include 'include/send_message.html' %}
+		</div>
+	</div>
+{% endblock top %}
+
+
+{% block main %} <!-- to show map map only --> {% endblock main %}

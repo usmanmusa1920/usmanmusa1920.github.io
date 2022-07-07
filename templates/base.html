@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="{% static 'media/favicon.ico' %}" type="image/x-icon">
+		<link rel="stylesheet" href="{% static 'base.css' %}">
+		<script src="{% static 'js/base.js' %}"></script>
+		{% block header %} <!-- block content --> {% endblock header %}
+	</head>
+
+	<body>
+		{% include 'include/validator.html' %}
+		<div class="container">
+			<div class="header">
+				<div class="header_col">
+					<div class="head_left">
+						<h1>
+							<a href="/">Usman Musa</a>
+						</h1>
+					</div>
+
+					<div class="head_right">
+						<form action="{% url 'auth:search' %}" method="get" class="search">
+							<input type="search" name="search_q" placeholder="Search here" required>
+							<button type="submit">Search</button>
+						</form>
+
+						<a href="https://twitter.com/usmanmusa1920" class="link_0">
+							<img src="{% static 'media/icon-twitter.png' %}" alt="twitter logo">
+						</a>
+						<a class="link_1">|</a>
+						<a href="https://linkedin.com/in/usmanmusa1920" class="link_2">LinkedIn</a>
+						<a href="{% url 'auth:direct_message' %}" class="link_3">DM</a>
+
+						<a onclick="show_menu()" id="menu_img">
+							<div>&#9776;</div>
+							{% if request.user.is_authenticated %}
+							{% if general_context.gen_con_message.count > 0 %}
+								{% if general_context.gen_con_message.count > 5 %}
+								<span>+</span>
+								{% else %}
+								<span>+</span>
+								{% endif %}
+							{% elif general_context.gen_con_search.count > 0 %}
+								{% if general_context.gen_con_search.count > 5 %}
+								<span>+</span>
+								{% else %}
+								<span>+</span>
+								{% endif %}
+							{% elif general_context.gen_con_comment.count > 0 %}
+								{% if general_context.gen_con_comment.count > 5 %}
+								<span>+</span>
+								{% else %}
+								<span>+</span>
+								{% endif %}
+							{% elif general_context.gen_con_reply.count > 0 %}
+								{% if general_context.gen_con_reply.count > 5 %}
+								<span>+</span>
+								{% else %}
+								<span>+</span>
+								{% endif %}
+							{% elif general_context.gen_con_new_visitors.count > 0 %}
+								{% if general_context.gen_con_new_visitors.count > 5 %}
+								<span>+</span>
+								{% else %}
+								<span>+</span>
+								{% endif %}
+							{% endif %}
+							{% endif %}
+						</a>
+						<a class="times" onclick="hide_menu()">&times;</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="menu">
+				<div class="menu_col">
+					<div class="null" onclick="hide_menu()"></div>
+					<div class="list" id="menu">
+						<form action="{% url 'auth:search' %}" method="get" id="search">
+							<input type="search" name="search_q" placeholder="Search here" required>
+							<button type="submit">Search</button>
+						</form>
+
+						<div class="in_menu">
+							<p><a href="https://usmanmusa1920.github.io">Main site</a></p>
+							<p><a href="{% url 'blog:blog' %}">Articles</a></p>
+							{% if request.user.is_authenticated %}
+								<p><a href="{% url 'auth:notification' %}">Notification</a></p>
+								{% if general_context.gen_con_comment.count > 0 %}
+									<p><a href="{% url 'auth:notification' %}">Recent new comment ({{general_context.gen_con_comment.count}})</a></p>
+								{% endif %}
+								{% if general_context.gen_con_reply.count > 0 %}
+									<p><a href="{% url 'auth:notification' %}">Recent new reply ({{general_context.gen_con_reply.count}})</a></p>
+								{% endif %}
+								{% if general_context.gen_con_search.count > 0 %}
+									<p><a href="{% url 'auth:notification' %}">Recent new search ({{general_context.gen_con_search.count}})</a></p>
+								{% endif %}
+								{% if general_context.gen_con_message.count > 0 %}
+									<p><a href="{% url 'auth:notification' %}">Recent new message ({{general_context.gen_con_message.count}})</a></p>
+								{% endif %}
+								{% if general_context.gen_con_new_visitors.count > 0 %}
+									<p><a href="{% url 'auth:notification' %}">Recent new visitor ({{general_context.gen_con_new_visitors.count}})</a></p>
+								{% endif %}
+								<p><a href="{% url 'blog:create_article' %}">Create article</a></p>
+							{% endif %}
+							<p><a href="{% url 'auth:about' %}">About</a></p>
+							<p><a href="https://twitter.com/usmanmusa1920">Twitter</a></p>
+							<p><a href="https://linkedin.com/in/usmanmusa1920">linkedIn</a></p>
+							<p><a href="https://github.com/usmanmusa1920">Github</a></p>
+							<p><a href="https://medium.com/@usmanmusa1920">Medium</a></p>
+							<p><a href="https://hub.docker.com/u/usmanmusa">Docker</a></p>
+							<p><a href="{% url 'auth:direct_message' %}">Direct Message</a></p>
+						</div>
+						<br>
+
+						<div class="in_menu">
+							<h1>Articles:</h1>
+							{% if general_context.gen_con_category %}
+								{% for category in general_context.gen_con_category %}
+									<p><a href="{% url 'blog:article' category.id %}">{{category.title}}</a></p>
+								{% endfor %}
+							{% else %}
+								<p><a>Articles are comming soon!</a></p>
+							{% endif %}
+						</div>
+						<br>
+						
+						<div class="menu_links">
+							{% if request.user.is_authenticated %}
+								<p><a href="/a94c3c503b65223cc1efdaffd90e69d791ab85b49c8755d5a3e9be56a11e/">Admin</a></p>
+								<p><a href="{% url 'auth:logout' %}">Logout</a></p>
+								<p><a href="{% url 'auth:change_password' %}">Change password</a></p>
+							{% else %}
+								<p><a href="{% url 'auth:login' %}">Login <small>(admin only)</small></a></p>
+							{% endif %}
+						</div>
+						<br>
+						
+						<!-- Pop-up direct message form -->
+						<form method="post" action="{% url 'auth:send_message' %}" class="message">
+							{% csrf_token %}
+							<h1>Send your message:</h1>
+							<input type="text" name="full_name" id="dm_pop_js_val_id_full_name" placeholder="Your full name" required>
+							<input type="email" name="email" id="dm_pop_js_val_id_email" placeholder="Your email address" required>
+							<textarea name="text_body" id="dm_pop_js_val_id_text_body" placeholder="Type your message here ..." required></textarea>
+							<button type="submit" onclick="val_required_fields('dm_pop')">Send</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			{% if messages %}
+				{% for flash_msg in messages %}
+					<div class="alert_{{flash_msg.tags}}">
+						<p class="alert_col_{{flash_msg.tags}}">{{flash_msg}}</p>
+					</div>
+				{% endfor %}
+			{% endif %}
+			
+			<span onclick="hide_menu()">
+				{% block top %} <!-- block content --> {% endblock top %}
+			</span>
+			
+			<div class="main" onclick="hide_menu()">
+				<div class="main_column">
+					{% block main %} <!-- block content --> {% endblock main %}
+					<div class="three_col">
+						<div>
+							<img src="{% static 'media/banner.png' %}" alt="">
+							<br>
+							<p>Usman <a class="peace"><b>banner</b></a> up here!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="footer" onclick="hide_menu()">
+				<div class="foot_left">
+					<p>Have a fun with programming and other IT related skills with Usman.</p>
+					<br>
+					<p>Usman is always available for side collaborations, if you want web design, software development, or anything else in IT, don't hesitate in reaching out.</p>
+					<form action="{% url 'auth:search' %}" method="get">
+						<input type="search" name="search_q" placeholder="Search here" required>
+						<button type="submit">Search</button>
+					</form>
+					<!-- Enhanced by google: https://google.com/search?q=usmanmusa1920 -->
+					<!-- <form action="https://google.com/search" method="get">
+						<input type="search" name="q" placeholder="Search here">
+						<button type="submit">search</button>
+					</form> -->
+				</div>
+				<div class="foot_right">
+					<a href="https://twitter.com/usmanmusa1920">Twitter</a>
+					<a href="{% url 'auth:direct_message' %}">Direct Message</a>
+					<p>&copy; {{general_context.gen_con_the_year}} Usman Musa Website</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

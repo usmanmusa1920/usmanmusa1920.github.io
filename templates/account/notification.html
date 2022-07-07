@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'info.css' %}">
+	<title>Usman Musa | Notification</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="mini">
+		<div class="mini_column">
+			<h1>Notifications</h1>
+		</div>
+	</div>
+	
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				<div class="in_side">
+					<div class="message">
+						<h1>Message:</h1>
+					</div>
+					{% if Messages.paginator.count > 0 %}
+						<h1 class="in_side_h1">Recent message(s) sent</h1>
+						{% for msg in Messages %}
+							<div class="post">
+								<h1>{{msg.full_name}}</h1>
+								<small>Since {{msg.timestamp|date:'M d, Y'}} by <span>{{msg.email}}</span></small>
+								<br>
+								<small><a href="{% url 'auth:mark_message' msg.id %}" class="peace">Mark as read</a></small>
+								<small><a href="{% url 'auth:delete_message' msg.id %}" class="danger">Delete</a></small>
+								<hr>
+								<br>
+								<p>{{msg.text_body}}</p>
+							</div>
+						{% endfor %}
+					{% else %}
+						<h1 class="in_side_h1">No recent message</h1>
+					{% endif %}
+
+					{% if Messages.paginator.count > 5 %}
+						<div class="paginator">
+							{% if Messages.has_previous %}
+								<a href="?page={{Messages.previous_page_number}}" class="page_surf"><h3>Previous</h3></a>
+								<a>...</a>
+							{% endif %}
+							{% for num in Messages.paginator.page_range %}
+								{% if Messages.number == num %}
+									<a href="?page={{num}}" class="page_current"><h3>{{num}}</h3></a>
+								{% elif num > Messages.number|add:'-4' and num < Messages.number|add:'4' %}
+									<a href="?page={{num}}" class="page_number"><h3>{{num}}</h3></a>
+								{% endif %}
+							{% endfor %}
+							{% if Messages.has_next %}
+								<a>...</a>
+								<a href="?page={{Messages.next_page_number}}" class="page_surf"><h3>Next</h3></a>
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
+
+				<div class="in_side">
+					<div class="message">
+						<h1>Comment:</h1>
+					</div>
+					{% if comments.paginator.count > 0 %}
+						<h1 class="in_side_h1">Recent post comment(s)</h1>
+						{% for comment in comments %}
+							<div class="post">
+								<h1>{{comment.full_name}}</h1>
+								<small>Since {{comment.timestamp|date:'M d, Y'}} by <span>{{comment.email}}</span></small>
+								<br>
+								<small><a href="{% url 'blog:post' comment.post.id %}" class="ref">@ {{comment.post.title}}</a></small>
+								<br>
+								<small><a href="{% url 'blog:mark_comment' comment.id %}" class="peace">Mark as read</a></small>
+								<small><a href="{% url 'blog:delete_comment' comment.id %}" class="danger">Delete</a></small>
+								<hr>
+								<br>
+								<p>{{comment.text_body}}</p>
+								<hr>
+								<small><a href="{% url 'blog:comment' comment.id %}" class="detail">Write reply</a></small>
+							</div>
+						{% endfor %}
+					{% else %}
+						<h1 class="in_side_h1">No recent comment</h1>
+					{% endif %}
+
+					{% if comments.paginator.count > 5 %}
+						<div class="paginator">
+							{% if comments.has_previous %}
+								<a href="?page={{comments.previous_page_number}}" class="page_surf"><h3>Previous</h3></a>
+								<a>...</a>
+							{% endif %}
+							{% for num in comments.paginator.page_range %}
+								{% if comments.number == num %}
+									<a href="?page={{num}}" class="page_current"><h3>{{num}}</h3></a>
+								{% elif num > comments.number|add:'-4' and num < comments.number|add:'4' %}
+									<a href="?page={{num}}" class="page_number"><h3>{{num}}</h3></a>
+								{% endif %}
+							{% endfor %}
+							{% if comments.has_next %}
+								<a>...</a>
+								<a href="?page={{comments.next_page_number}}" class="page_surf"><h3>Next</h3></a>
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
+
+				<div class="in_side">
+					<div class="message">
+						<h1>Reply:</h1>
+					</div>
+					{% if replys.paginator.count > 0 %}
+						<h1 class="in_side_h1">Recent reply(s)</h1>
+						{% for reply in replys %}
+							<div class="post">
+								<h1>{{reply.full_name}}</h1>
+								<small>Since {{reply.timestamp|date:'M d, Y'}} by <span>{{reply.email}}</span></small>
+								<br>
+								<small><a href="{% url 'blog:comment' reply.comment.id %}" class="ref">@ {{reply.comment.text_body}}</a></small>
+								<br>
+								<small><a href="{% url 'blog:mark_reply' reply.id %}" class="peace">Mark as read</a></small>
+								<small><a href="{% url 'blog:delete_reply' reply.id %}" class="danger">Delete</a></small>
+								<hr>
+								<br>
+								<p>{{reply.text_body}}</p>
+							</div>
+						{% endfor %}
+					{% else %}
+						<h1 class="in_side_h1">No recent reply</h1>
+					{% endif %}
+
+					{% if replys.paginator.count > 5 %}
+						<div class="paginator">
+							{% if replys.has_previous %}
+								<a href="?page={{replys.previous_page_number}}" class="page_surf"><h3>Previous</h3></a>
+								<a>...</a>
+							{% endif %}
+							{% for num in replys.paginator.page_range %}
+								{% if replys.number == num %}
+									<a href="?page={{num}}" class="page_current"><h3>{{num}}</h3></a>
+								{% elif num > replys.number|add:'-4' and num < replys.number|add:'4' %}
+									<a href="?page={{num}}" class="page_number"><h3>{{num}}</h3></a>
+								{% endif %}
+							{% endfor %}
+							{% if replys.has_next %}
+								<a>...</a>
+								<a href="?page={{replys.next_page_number}}" class="page_surf"><h3>Next</h3></a>
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="side_right">
+				<div class="list">
+					<h1>Monthly metrix:</h1>
+					<p>There are <span class="peace_back">{{general_context.gen_con_month_visit.visit_num}}</span> visitors in this month</p>
+				</div>
+				<div class="list">
+					<h1>Visitors history:</h1>
+					{% if visitors.paginator.count > 0 %}
+						<ul>
+							{% for visitor in visitors %}
+								<li>
+								<p>
+									<a>A visitor on <span>{{visitor.timestamp|date:'M d, Y'}}</span> from an ip of <span>{{visitor.ip_address}}<span></a>
+									<hr>
+									<br>
+									<a href="{% url 'auth:delete_visit' visitor.id %}" class="danger">Delete</a>
+									<br>
+									<a href="{% url 'auth:mark_visit' visitor.id %}" class="peace">mark as read</a>
+								</p>
+								</li>
+							{% endfor %}
+						</ul>
+					{% else %}
+						<h1 class="in_side_h1">No recent visitor</h1>
+					{% endif %}
+
+					{% if visitors.paginator.count > 5 %}
+						<div class="paginator">
+							{% if visitors.has_previous %}
+								<a href="?page={{visitors.previous_page_number}}" class="page_surf"><h3>Previous</h3></a>
+								<a>...</a>
+							{% endif %}
+							{% for num in visitors.paginator.page_range %}
+								{% if visitors.number == num %}
+									<a href="?page={{num}}" class="page_current"><h3>{{num}}</h3></a>
+								{% elif num > visitors.number|add:'-4' and num < visitors.number|add:'4' %}
+									<a href="?page={{num}}" class="page_number"><h3>{{num}}</h3></a>
+								{% endif %}
+							{% endfor %}
+							{% if visitors.has_next %}
+								<a>...</a>
+								<a href="?page={{visitors.next_page_number}}" class="page_surf"><h3>Next</h3></a>
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
+
+				<div class="list">
+					<h1>Search history:</h1>
+					{% if searches.paginator.count > 0 %}
+						<ul>
+							{% for search in searches %}
+								<li>
+								<p>
+									<a>a search of <span>{{search.search_text}}</span> on {{search.timestamp|date:'M d, Y'}} from an ip of <span>{{search.ip_address}}<span></a>
+									<hr>
+									<br>
+									<a href="{% url 'auth:delete_search' search.id %}" class="danger">Delete</a>
+									<br>
+									<a href="{% url 'auth:mark_search' search.id %}" class="peace">mark as read</a>
+								</p>
+								</li>
+							{% endfor %}
+						</ul>
+					{% else %}
+						<h1 class="in_side_h1">No recent search</h1>
+					{% endif %}
+
+					{% if searches.paginator.count > 5 %}
+						<div class="paginator">
+							{% if searches.has_previous %}
+								<a href="?page={{searches.previous_page_number}}" class="page_surf"><h3>Previous</h3></a>
+								<a>...</a>
+							{% endif %}
+							{% for num in searches.paginator.page_range %}
+								{% if searches.number == num %}
+									<a href="?page={{num}}" class="page_current"><h3>{{num}}</h3></a>
+								{% elif num > searches.number|add:'-4' and num < searches.number|add:'4' %}
+									<a href="?page={{num}}" class="page_number"><h3>{{num}}</h3></a>
+								{% endif %}
+							{% endfor %}
+							{% if searches.has_next %}
+								<a>...</a>
+								<a href="?page={{searches.next_page_number}}" class="page_surf"><h3>Next</h3></a>
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
+
+				<div class="list">
+					<h1>Articles:</h1>
+					{% if general_context.gen_con_category %}
+						<ul>
+							{% for category in general_context.gen_con_category %}
+								<li>
+								<p><a href="{% url 'blog:article' category.id %}">{{category.title}}</a></p>
+								</li>
+							{% endfor %}
+						</ul>
+					{% else %}
+						<h1 class="in_side_h1"><small>Articles are comming soon!</small></h1>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock top %}

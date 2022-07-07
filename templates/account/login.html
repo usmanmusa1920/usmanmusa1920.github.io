@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'form.css' %}">
+	<title>Usman Musa | login</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="box">
+		<h1>Login</h1>
+	</div>
+  
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				<form method="POST" class="message" id="auth">
+					{% csrf_token %}
+					{{form.errors}}
+					<h1>Login your account:</h1>
+					<input type="text" name="username" placeholder="Username" required>
+					<input type="password" name="password" placeholder="Password" required>
+					<button type="submit">login</button>
+				</form>
+				<br>
+			</div>
+			
+			<div class="side_right">
+				{% include 'include/send_message.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock top %}

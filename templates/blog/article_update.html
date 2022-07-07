@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'form.css' %}">
+	<title>Usman Musa | update article</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="box">
+		<h1>Update article</h1>
+	</div>
+	
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				<form method="post" class="message" id="auth">
+					{% csrf_token %}
+					<h1>Update an article:</h1>
+					{% if form.instance.title %}
+						<input type="text" name="title" placeholder="Title" value="{{form.instance.title}}" required>
+					{% else %}
+						<input type="text" name="title" placeholder="Title" required>
+					{% endif %}
+
+					{% if form.instance.description %}
+						<textarea name="description" placeholder="Article content">{{form.instance.description}}</textarea>
+					{% else %}
+						<textarea name="description" placeholder="Article content"></textarea>
+					{% endif %}
+
+					{% if form.instance.snippet %}
+						<textarea name="snippet" placeholder="Code snippet">{{form.instance.snippet}}</textarea>
+					{% else %}
+						<textarea name="snippet" placeholder="Code snippet"></textarea>
+					{% endif %}
+
+					{% if form.instance.image_url %}
+						<input type="text" name="image_url" placeholder="Image url" value="{{form.instance.image_url}}">
+					{% else %}
+						<input type="text" name="image_url" placeholder="Image url">
+					{% endif %}
+
+					<p>Article links (names, and values)</p>
+					{% if form.instance.url_list %}
+						<p>Links names:</p>
+						<input type="text" name="url_list_name" placeholder="Google, Apple, IBM" value="{% for key, value in real_url.items %} {{key}}, {% endfor %}">
+						<p>Links values:</p>
+						<input type="text" name="url_list_value" placeholder="https://www.google.com, https://www.apple.com, https://www.ibm.com" value="{% for key, value in real_url.items %} {{value}}, {% endfor %}">
+					{% else %}
+						<p>Links names:</p>
+						<input type="text" name="url_list_name" placeholder="Google, Apple, IBM">
+						<p>Links values:</p>
+						<input type="text" name="url_list_value" placeholder="https://www.google.com, https://www.apple.com, https://www.ibm.com">
+					{% endif %}
+					<button type="submit">update</button>
+				</form>
+				<br>
+				<a href="{% url 'blog:article' form.instance.id %}" class="peace_back">Go back</a>
+			</div>
+		</div>
+	</div>
+{% endblock top %}

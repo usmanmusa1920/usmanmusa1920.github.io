@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'error.css' %}">
+	<title>Usman Musa | {{err_msg.code}}</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="box">
+		<h1>Page {{err_msg.code}} {{err_msg.status}}</h1>
+	</div>
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				<form class="message" id="auth">
+					<h1>Page {{err_msg.code}} {{err_msg.status}}</h1>
+					<p>Something went wrong, try again in just a minute</p>
+				</form>
+			</div>
+			<br>
+			<div class="side_right">
+				{% include 'include/send_message.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock top %}
+
+
+{% block main %} <!-- to show map map only --> {% endblock main %}

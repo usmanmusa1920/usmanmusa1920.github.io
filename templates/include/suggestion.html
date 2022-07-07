@@ -1,0 +1,89 @@
+<!-- This is side suggestion include file for blog.html and article.html. -->
+
+<div class="cat">
+	<h1 class="s">Suggested for you!</h1>
+	{% if general_context.gen_con_rand_1 %}
+		<!-- rand_1 -->
+		<h1><a href="{% url 'blog:article' general_context.gen_con_rand_1.id %}">{{general_context.gen_con_rand_1.title}}</a></h1>
+		<small>Date created: since {{general_context.gen_con_rand_1.pub_date|date:'M d, Y'}} by <span>{{general_context.gen_con_rand_1.publisher.first_name}} {{general_context.gen_con_rand_1.publisher.last_name}}</span></small>
+		<hr>
+		<br>
+		{% if general_context.gen_con_rand_1.description %}
+			<p>{{general_context.gen_con_rand_1.description}}</p>
+		{% endif %}
+
+		{% if general_context.gen_con_rand_1.image_url %}
+			<div class="three_col">
+				<div>
+					<img src="{{general_context.gen_con_rand_1.image_url}}" alt="">
+				</div>
+			</div>
+		{% endif %}
+
+		{% if general_context.gen_con_rand_1.snippet %}
+			<div class="c_div">
+				<pre><small><code>{{general_context.gen_con_rand_1.snippet}}</code></small></pre>
+			</div>
+			<br>
+		{% endif %}
+	{% endif %}
+
+	{% if general_context.gen_con_rand_2 %}
+		<h1><a href="{% url 'blog:article' general_context.gen_con_rand_2.id %}">{{general_context.gen_con_rand_2.title}}</a></h1>
+		<small>Date created: since {{general_context.gen_con_rand_2.pub_date|date:'M d, Y'}} by <span>{{general_context.gen_con_rand_2.publisher.first_name}} {{general_context.gen_con_rand_2.publisher.last_name}}</span></small>
+		<hr>
+		<br>
+
+		{% if general_context.gen_con_rand_2.description %}
+			<p>{{general_context.gen_con_rand_2.description}}</p>
+		{% endif %}
+
+		{% if general_context.gen_con_rand_2.image_url %}
+			<div class="three_col">
+				<div>
+					<img src="{{general_context.gen_con_rand_2.image_url}}" alt="">
+				</div>
+			</div>
+		{% endif %}
+
+		{% if general_context.gen_con_rand_2.snippet %}
+			<div class="c_div">
+				<pre><small><code>{{general_context.gen_con_rand_2.snippet}}</code></small></pre>
+			</div>
+			<br>
+		{% endif %}
+	{% endif %}
+
+	{% if general_context.gen_con_rand_1 %}
+		<!-- pass -->
+	{% else %}
+		{% if general_context.gen_con_rand_2 %}
+			<!-- pass -->
+		{% else %}
+			<h1><a>Suggestion very soon!</a></h1>
+		{% endif %}
+	{% endif %}
+</div>
+
+<div class="list">
+	<h1>Articles:</h1>
+	{% if general_context.gen_con_category %}
+		<ul>
+		{% for category in general_context.gen_con_category %}
+			<li>
+			<p><a href="{% url 'blog:article' category.id %}">{{category.title}}</a></p>
+			</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>Articles are comming soon!</p>
+	{% endif %}
+</div>
+
+<div class="ss">
+	<h1 class="s">Search Usman website</h1>
+	<form action="{% url 'auth:search' %}" method="get" class="search" id="search">
+		<input type="search" name="search_q" placeholder="Search here" required>
+		<button type="submit">Search</button>
+	</form>
+</div>

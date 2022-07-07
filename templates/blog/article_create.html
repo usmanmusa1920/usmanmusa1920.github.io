@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+	<link rel="stylesheet" href="{% static 'form.css' %}">
+	<title>Usman Musa | create article</title>
+{% endblock header %}
+
+
+{% block top %}
+	<div class="box">
+		<h1>Create an article</h1>
+	</div>
+  
+	<div class="dark">
+		<div class="posts">
+			<div class="side_left">
+				<form method=post class="message" id="auth">
+					{% csrf_token %}
+					<h1>Create an article:</h1>
+					<input type="text" name="title" placeholder="Title" required>
+					<textarea name="description" placeholder="Article content"></textarea>
+					<textarea name="snippet" placeholder="Code snippet"></textarea>
+					<input type="text" name="image_url" placeholder="Image url">
+					<p>Article links (names, and values)</p>
+					<p>Links names:</p>
+					<input type="text" name="url_list_name" placeholder="Google, Apple, IBM">
+					<p>Links values:</p>
+					<input type="text" name="url_list_value" placeholder="https://www.google.com, https://www.apple.com, https://www.ibm.com">
+					<button type="submit">create</button>
+				</form>
+				<br>
+				<br>
+			</div>
+		</div>
+	</div>
+{% endblock top %}
