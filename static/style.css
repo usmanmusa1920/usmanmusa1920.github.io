@@ -22,10 +22,6 @@ time, mark, audio, video {
   background:transparent;
 }
 
-.peace{
-  color: green;
-}
-
 .black{
   color: black;
 }
@@ -77,12 +73,12 @@ body{
 }
 
 @media only screen and (max-width: 700px){
-  .head_left h1{
+  .logo{
     font-size: 20px;
   }
 }
 
-.logo{
+.logo a{
   color: white;
   text-decoration: none;
   width: fit-content;
@@ -113,7 +109,7 @@ body{
   }
 }
 
-.head_right img{
+.head_right a img{
   width: 40px;
   height: 40px;
   margin-left: 15px;
@@ -299,41 +295,6 @@ body{
   }
 }
 
-.three_col div img{
-  width: 90%;
-  height: auto;
-}
-
-.links{
-  margin: 70px 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-@media only screen and (max-width: 700px){
-  .links{
-    margin: 20px 0;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.links a{
-  background-color: black;
-  color: white;
-  padding: 20px;
-  text-decoration: none;
-}
-
-@media only screen and (max-width: 700px){
-  .links a{
-    width: 50vw;
-    text-align: center;
-    margin: 5px 0;
-  }
-}
-
 .me{
   display: flex;
   padding: 0 50px;
@@ -414,5 +375,35 @@ body{
 @media only screen and (max-width: 700px){
   .me video{
     width: 90vw;
+  }
+}
+
+.links{
+  margin: 70px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 700px){
+  .links{
+    margin: 20px 0;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.links a{
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 700px){
+  .links a{
+    width: 50vw;
+    text-align: center;
+    margin: 5px 0;
   }
 }

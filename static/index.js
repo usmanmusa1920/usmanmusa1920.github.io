@@ -4,7 +4,7 @@ function lightMode(){
   document.querySelector('body').style.backgroundColor = 'white'
   document.querySelector('body').style.color = 'black'
   document.querySelector('.header').style.backgroundColor = 'white'
-  document.querySelector('.logo').style.color = 'black'
+  document.querySelector('.logo a').style.color = 'black'
   
   document.querySelector('.light').style.display = 'none'
   document.querySelector('.dark').style.display = 'block'
@@ -28,7 +28,7 @@ function darkMode(){
   document.querySelector('body').style.backgroundColor = 'rgb(50, 50, 63)'
   document.querySelector('body').style.color = 'white'
   document.querySelector('.header').style.backgroundColor = 'rgb(50, 50, 63)'
-  document.querySelector('.logo').style.color = 'white'
+  document.querySelector('.logo a').style.color = 'white'
   
   document.querySelector('.light').style.display = 'block'
   document.querySelector('.dark').style.display = 'none'
