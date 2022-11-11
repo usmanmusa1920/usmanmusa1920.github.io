@@ -1,0 +1,71 @@
+function lightMode(){
+  // this function populate light mode functionalities
+  document.querySelector('body').style.backgroundColor = 'white';
+  document.querySelector('body').style.color = 'black';
+  document.querySelector('.header').style.backgroundColor = 'white';
+  document.querySelector('.logo a').style.color = 'black';
+  document.querySelector('.light').style.display = 'none';
+  document.querySelector('.dark').style.display = 'block';
+
+  // code div
+  document.querySelector('.code_div div').style.backgroundColor = 'lightgray';
+  document.querySelector('.code_div div').style.color = 'black';
+
+  // checking device width for responsive
+  if (window.innerWidth < 701){
+    // pass
+    }
+  else{
+    // for social media links
+    document.querySelector('.link_0').style.color = 'black';
+    document.querySelector('.link_1').style.color = 'black';
+    document.querySelector('.link_2').style.color = 'black';
+    document.querySelector('.link_3').style.color = 'black';
+  }
+}
+
+
+function darkMode(){
+  // this function populate dark mode functionalities
+  document.querySelector('body').style.backgroundColor = 'rgb(50, 50, 63)';
+  document.querySelector('body').style.color = 'white';
+  document.querySelector('.header').style.backgroundColor = 'rgb(50, 50, 63)';
+  document.querySelector('.logo a').style.color = 'white';
+  document.querySelector('.light').style.display = 'block';
+  document.querySelector('.dark').style.display = 'none';
+
+  // code div
+  document.querySelector('.code_div div').style.backgroundColor = 'black';
+  document.querySelector('.code_div div').style.color = 'lightgray';
+
+  // checking device width for responsive
+  if (window.innerWidth < 701){
+    // pass
+    }
+  else{
+    // for social media links
+    document.querySelector('.link_0').style.color = 'white';
+    document.querySelector('.link_1').style.color = 'white';
+    document.querySelector('.link_2').style.color = 'white';
+    document.querySelector('.link_3').style.color = 'white';
+  }
+}
+
+
+function this_year(){
+  // this function retrieve current year we are
+  var this_year = new Date();
+  document.getElementById("this_year").innerHTML = this_year.getFullYear();
+}
+
+
+function sdk_func(){
+  // this function display the full meaning of SDK
+  document.querySelector('.sdk').style.display = 'block';
+}
+
+
+function sdk_func_timeout(){
+  // this function make the full meaning of SDK to disappear
+  document.querySelector('.sdk').style.display = 'none';
+}
