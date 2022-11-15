@@ -367,17 +367,6 @@ body{
   }
 }
 
-.me video{
-  width: 18vw;
-  height: auto;
-}
-
-@media only screen and (max-width: 700px){
-  .me video{
-    width: 90vw;
-  }
-}
-
 .links{
   margin: 70px 0;
   width: 100%;
