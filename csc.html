@@ -112,6 +112,39 @@
         <div class="posts">
           <div class="side_left">
             <div class="post">
+              <h1><a>Mysql assignment</a></h1>
+              <img src="static_2/media/me_1.jpg" class="banner_column_img" alt="">
+              <small>Date created: since december 26, 2022 by <span>Usman Musa</span></small>
+              <br>
+              <small><a class="ref">@ structured query language</a></small>
+              <hr>
+              <br>
+              <p>
+                Explain in details what does the following command do? And make a new commands with error free if the current command encoutered error.
+                <br>
+                create table mytab (name char(10) NULL, age number(3) default 'none supplied', address varchar(20), primary key (name));
+                <br>
+                <br>
+                <strong>Answer:</strong>
+                <br>
+                The command is trying to create a table in a database with a name called `mytab`, which includes 4 entities (fields) for each record, they are (name, age, address, and primary key). But this command is invalid because, if we look after `age` in the command there is `number(3)' which will give us an error it suppose to be `int`, and also a default value of 'none supplied' which is not suppose to be, why? because age suppose to be in `integer` data type, but the default there is in `char` data type, so we have to change it to be integer like 10, 255 or any integer value not decimal.
+                <br>
+                <br>
+                Also, `primary key (name)` is invalid, because primary key are suppose to be integer and also auto increment in some cases, this primary key sometimes even if we negate it, the db will populate it automatically, so the correct is to give our `primary key` as primary key (age) since age is in integer data type.
+                <br>
+                <br>
+                Lastly, the correct command suppose to be:
+              </p>
+              <div class="c_div">
+                <pre><small><code>CREATE TABLE mytab(
+  name char(10) NULL, age int default 12,
+  address varchar(20), primary key (age)
+);</code></small></pre>
+              </div>
+              <br>
+            </div>
+
+            <div class="post">
               <h1><a>Assignment 1</a></h1>
               <img src="static_2/media/me_1.jpg" class="banner_column_img" alt="">
               <small>Date created: since december 07, 2022 by <span>Usman Musa</span></small>
@@ -351,39 +384,6 @@ step_4 = step_1 * radius;
 printf("\tThe circumference of the circle is: %f\n", step_4);
 return 0;
 }</code></small></pre>
-              </div>
-              <br>
-            </div>
-            
-            <div class="post">
-              <h1><a>Mysql assignment</a></h1>
-              <img src="static_2/media/me_1.jpg" class="banner_column_img" alt="">
-              <small>Date created: since december 26, 2022 by <span>Usman Musa</span></small>
-              <br>
-              <small><a class="ref">@ structured query language</a></small>
-              <hr>
-              <br>
-              <p>
-                Explain in details what does the following command do? And make a new commands with error free if the current command encoutered error.
-                <br>
-                create table mytab (name char(10) NULL, age number(3) default 'none supplied', address varchar(20), primary key (name));
-                <br>
-                <br>
-                <strong>Answer:</strong>
-                <br>
-                The command is trying to create a table in a database with a name called `mytab`, which includes 4 entities (fields) for each record, they are (name, age, address, and primary key). But this command is invalid because, if we look after `age` in the command there is `number(3)' which will give us an error it suppose to be `int`, and also a default value of 'none supplied' which is not suppose to be, why? because age suppose to be in `integer` data type, but the default there is in `char` data type, so we have to change it to be integer like 10, 255 or any integer value not decimal.
-                <br>
-                <br>
-                Also, `primary key (name)` is invalid, because primary key are suppose to be integer and also auto increment in some cases, this primary key sometimes even if we negate it, the db will populate it automatically, so the correct is to give our `primary key` as primary key (age) since age is in integer data type.
-                <br>
-                <br>
-                Lastly, the correct command suppose to be:
-              </p>
-              <div class="c_div">
-                <pre><small><code>CREATE TABLE mytab(
-  name char(10) NULL, age int default 12,
-  address varchar(20), primary key (age)
-);</code></small></pre>
               </div>
               <br>
             </div>
