@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+  <link rel="stylesheet" href="{% static 'form.css' %}">
+  <title>Usman Musa | login</title>
+{% endblock header %}
+
+
+{% block top %}
+  <div class="box">
+    <h1>Login</h1>
+  </div>
+  
+  <div class="dark">
+    <div class="posts">
+      <div class="side_left">
+        <form method="POST" class="message" id="auth">
+          {% csrf_token %}
+          <h1>Login your account:</h1>
+          <input type="text" name="username" placeholder="Username" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button type="submit">login</button>
+        </form>
+        <br>
+      </div>
+
+      <div class="side_right">
+        <form method="post" action="{% url 'message:send' %}" class="message">
+          {% csrf_token %}
+          <h1>Send your message:</h1>
+          <input type="text" name="full_name" placeholder="Your full name" required>
+          <input type="email" name="email" placeholder="Your email address" required>
+          <textarea name="text_body" placeholder="Type your message here ..." required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock top %}

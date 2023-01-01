@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+  <link rel="stylesheet" href="{% static 'landing.css' %}">
+  <title>Usman Musa</title>
+{% endblock header %}
+
+{% comment %}
+<!-- {% block top %}
+  <div class="mini" id="mini">
+    <div class="mini_column">
+      <h1>Search Usman website</h1>
+      <form action="#" class="search" id="search">
+        <input type="search" name="" placeholder="Search here">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+{% endblock top %} -->
+{% endcomment %}
+
+{% block main %}
+  <div class="mini">
+    <div class="mini_column">
+      <h1>Personal IT domain site</h1>
+      <p>Looking forward to IT and software development sector, to work, change and innovate creative digital system together with IT ally.</p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h1>Hello! I am Usman Musa<h1>
+    <div class="box_in">
+      <img src="/static/media/me_2.jpg" alt="">
+      <p>Nascent project is <strong><a href="#" class="peace">coming</a></strong></p>
+    </div>
+    <h3>More features in <a href="#" class="peace">project</a> are coming soon...</h3>
+  </div>
+
+  <div class="three_col">
+    <div>
+      <h3>Abstraction</h3>
+      <p>Abstracting complexity for <strong>Developers</strong> and <strong>IT ninjas.</strong> Never import the module of impossible into your script, it might mess up your syntax.</p>
+    </div>
+
+    <div>
+      <h3>Technology</h3>
+      <p>The only constant in technology industry is change. Any sufficiently advanced bug is indistinguishable from a feature. The 4 Ps for change and release: `planning prevents poor performance`</p>
+    </div>
+  </div>
+
+  <div class="me">
+    <img src="/static/media/back.jpg" alt="">
+    <div>
+      <p>"Technology is nothing, what is important is that you have faith in people, that they are good and smart, and if you give them the tools they will do absolutly wonderful thing with them."</p>
+    </div>
+  </div>
+
+  <div class="three_col">
+    <div>
+      <h3>Security</h3>
+      <img src="/static/media/security.jpg" alt="">
+      <p>Avoid using same password for all your online accounts. Create strong passwords using password manager, enable MFA & security questions if available. Remember, you are the target, while your device is the medium.</p>
+    </div>
+
+    <div>
+      <h3>Origin</h3>
+      <img src="/static/media/origin.jpg" alt="">
+      <p>Discourage yourself from keeping sensitive information away from online, such include allowing your browser to save your password, remember what goes online it stays online and it can be generated using <strong>OSINT</strong> (open source intelligent) techniques to get advantage of it.</p>
+    </div>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/usmanmusa1920">Github</a>
+    <a href="https://linkedin.com/in/usmanmusa1920">Linkedin</a>
+    <a href="https://drive.google.com/file/d/16ovVlyWCq5M-leEi3VYPS2pfVCQRW0HH/view?usp=sharing">Résumé</a>
+    <a href="https://facebook.com/usmanmu1920">Facebook</a>
+    <a href="https://hub.docker.com/u/usmanmusa">Duckerhub</a>
+  </div>
+
+  <div class="glance">
+    <h1>Coders mirror</h1>
+    <img src="/static/media/laptop.jpeg" alt="">
+    <p>In technology things are not build from scratch, they are add on of the previous technology, to achieve and bring out new thing to simplify task, and erase the previous bugs, no matter what field it is, beign it software development, web development, networking, system administration, data science, and other technological field.</p>
+  </div>
+
+  <div class="me">
+    <div>
+      <h1>@ <a>FUG</a></h1>
+      <br>
+      <p>some where in campus from <strong>UP</strong></p>
+      <br>
+      <small>You can't beat the hero, you can't be a hero</small>
+      <br>
+    </div>
+    <video src="/static/media/fug.mp4" controls></video>
+  </div>
+{% endblock main %}

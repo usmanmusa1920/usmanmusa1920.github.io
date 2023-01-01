@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'media/me_1.jpg' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  <script src="{% static 'js/base.js' %}"></script>
+  {% block header %}
+    <!-- include title -->
+    
+    <!-- header content -->
+  {% endblock header %}
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header_col">
+        <div class="head_left">
+          <h1>
+            <a href="{% url 'landing' %}">Usman Musa</a>
+          </h1>
+        </div>
+  
+        <div class="head_right">
+          <form action="{% url 'info:search' %}" method="get" class="search">
+            <input type="search" name="search_q" placeholder="Search here" required>
+            <button type="submit">Search</button>
+          </form>
+  
+          <a href="{% url 'about:about' %}">Portfolio</a>
+          <a href="https://drive.google.com/file/d/16ovVlyWCq5M-leEi3VYPS2pfVCQRW0HH/view?usp=sharing">Résumé</a>
+          <a href="{% url 'blogs' %}">Articles</a>
+          <a href="https://github.com/usmanmusa1920">Github</a>
+          <a href="https://linkedin.com/in/usmanmusa1920">Linkedin</a>
+
+          <a onclick="showMenu()" id="menu_img">
+            <img src="/static/media/show_menu_wht_bg.png" alt="" >
+            {% if request.user.is_authenticated %}
+              {% if default.message.count > 0 %}
+                {% if default.message.count > 5 %}
+                  <span>+</span>
+                {% else %}
+                  <span>+</span>
+                {% endif %}
+              {% elif default.search.count > 0 %}
+                {% if default.search.count > 5 %}
+                  <span>+</span>
+                {% else %}
+                  <span>+</span>
+                {% endif %}
+              {% elif default.comment.count > 0 %}
+                {% if default.comment.count > 5 %}
+                  <span>+</span>
+                {% else %}
+                  <span>+</span>
+                {% endif %}
+              {% elif default.reply.count > 0 %}
+                {% if default.reply.count > 5 %}
+                  <span>+</span>
+                {% else %}
+                  <span>+</span>
+                {% endif %}
+              {% elif default.new_visitors.count > 0 %}
+                {% if default.new_visitors.count > 5 %}
+                  <span>+</span>
+                {% else %}
+                  <span>+</span>
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          </a>
+          <a class="times" onclick="hideMenu()">&times;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu">
+      <div class="menu_col">
+        <div class="null" onclick="hideMenu()"></div>
+        <div class="list" id="menu">
+          
+          <form action="{% url 'info:search' %}" method="get" id="search">
+            <input type="search" name="search_q" placeholder="Search here" required>
+            <button type="submit">Search</button>
+          </form>
+
+          <div class="in_menu">
+            <p><a href="{% url 'blogs' %}">Articles</a></p>
+
+            {% if request.user.is_authenticated %}
+              <p><a href="{% url 'info:notification' %}">Notification</a></p>
+
+              {% if default.comment.count > 0 %}
+                <p><a href="{% url 'info:notification' %}">Recent new comment ({{default.comment.count}})</a></p>
+              {% endif %}
+              {% if default.reply.count > 0 %}
+                <p><a href="{% url 'info:notification' %}">Recent new reply ({{default.reply.count}})</a></p>
+              {% endif %}
+              {% if default.search.count > 0 %}
+                <p><a href="{% url 'info:notification' %}">Recent new search ({{default.search.count}})</a></p>
+              {% endif %}
+              {% if default.message.count > 0 %}
+                <p><a href="{% url 'info:notification' %}">Recent new message ({{default.message.count}})</a></p>
+              {% endif %}
+              {% if default.new_visitors.count > 0 %}
+                <p><a href="{% url 'info:notification' %}">Recent new visitor ({{default.new_visitors.count}})</a></p>
+              {% endif %}
+
+              <p><a href="{% url 'article:create' %}">Article create</a></p>
+            {% endif %}
+            
+            <p><a href="{% url 'about:about' %}">About</a></p>
+            <p><a href="https://drive.google.com/file/d/16ovVlyWCq5M-leEi3VYPS2pfVCQRW0HH/view?usp=sharing">Résumé</a></p>
+          </div>
+          <br>
+
+          <div class="in_menu">
+            <h1>Articles:</h1>
+            {% if default.category %}
+              {% for category in default.category %}
+                <p><a href="{% url 'article:article' category.id %}">{{category.title}}</a></p>
+              {% endfor %}
+            {% else %}
+              <p><a>Articles are comming soon!</a></p>
+            {% endif %}
+          </div>
+          <br>
+
+          <div class="in_menu">
+            <h1>Find me on:</h1>
+            <p><a href="https://github.com/usmanmusa1920">Github</a></p>
+            <p><a href="https://linkedin.com/in/usmanmusa1920">Linkedin</a></p>
+            <p><a href="https://facebook.com/usmanmu1920">Facebook</a></p>
+            <p><a href="https://hub.docker.com/u/usmanmusa">Duckerhub</a></p>
+          </div>
+          <br>
+          
+          <div class="menu_links">
+            {% if request.user.is_authenticated %}
+              <p><a href="/a94c3c503b65223cc1efdaffd90e69d791ab85b49c8755d5a3e9be56a11e">Admin</a></p>
+              <p><a href="{% url 'auth:logout' %}">Logout</a></p>
+              <p><a href="{% url 'auth:change_password' %}">Change password</a></p>
+            {% else %}
+              <p><a href="{% url 'auth:login' %}">Login <small>(admin only)</small></a></p>
+            {% endif %}
+          </div>
+          <br>
+
+          <form method="post" action="{% url 'message:send' %}" class="message">
+            {% csrf_token %}
+            <h1>Send your message:</h1>
+            <input type="text" name="full_name" placeholder="Your full name" required>
+            <input type="email" name="email" placeholder="Your email address" required>
+            <textarea name="text_body" placeholder="Type your message here ..." required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    {% if messages %}
+      {% for flash_msg in messages %}
+        <div class="alert_{{flash_msg.tags}}">
+          <p class="alert_col_{{flash_msg.tags}}">{{flash_msg}}</p>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <span onclick="hideMenu()">
+      {% block top %}
+        <!-- top content -->
+      {% endblock top %}
+    </span>
+    
+    <div class="main" onclick="hideMenu()">
+      <div class="main_column">
+        {% block main %}
+          <!-- main content -->
+        {% endblock main %}
+        <div class="three_col">
+          <div>
+            <!-- <div class="box">
+              <h1>Your location on map</h1>
+            </div> -->
+            <img src="/static/media/google_map.webp" alt="">
+            <p>Your current location is <a class="peace"><b>some where in the world</b></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer" onclick="hideMenu()">
+      <div class="foot_left">
+        <p>Have a fun with programming and other IT related skills with Usman.</p>
+        <br>
+        <p>Usman is always available for side collaborations, if you want web design, software development, or anything else in IT, don't hesitate in reaching out.</p>
+        <form>
+          <input type="search" name="" placeholder="Search here">
+          <button type="button">search</button>
+        </form>
+      </div>
+
+      <div class="foot_right">
+        <a href="#">Back to top</a>
+        <p>&copy; {{default.the_year}} Usman Musa website</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

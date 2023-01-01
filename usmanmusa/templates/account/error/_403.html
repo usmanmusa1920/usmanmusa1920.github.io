@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+  <link rel="stylesheet" href="{% static 'error.css' %}">
+  <title>Usman Musa | 403</title>
+{% endblock header %}
+
+{% block top %}
+  <div class="box">
+    <h1>Forbidden error 403</h1>
+  </div>
+  
+  <div class="dark">
+    <div class="posts">
+      <div class="side_left">
+        <form class="message" id="auth">
+          <h1>Forbidden error 403</h1>
+          <p>Something went wrong, try again in just a minute</p>
+        </form>
+      </div>
+      <br>
+  
+      <div class="side_right">
+        <form method="post" action="{% url 'message:send' %}" class="message">
+          {% csrf_token %}
+          <h1>Send your message:</h1>
+          <input type="text" name="full_name" placeholder="Your full name" required>
+          <input type="email" name="email" placeholder="Your email address" required>
+          <textarea name="text_body" placeholder="Type your message here ..." required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock top %}
+
+
+{% block main %}
+  <!-- to show map map only -->
+{% endblock main %}
