@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./static/media/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./static/style.css">
+    <script src="./static/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <title>Usman Musa</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+          const copyButton = document.getElementById('copy-button');
+          copyButton.style.display = 'block';
+          copyButton.className = 'copy-button';
+          copyButton.addEventListener('click', () => {
+            const textArea = document.createElement('textarea');
+            textArea.value = block.innerText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            copyButton.innerText = 'Copied to clipboard!';
+          });
+        });
+      });
+    </script>
+  </head>
+
+  <body onload="base_func()">
+    <div class="container">
+      <div class="header">
+        <div class="header_col">
+          <div class="head_left">
+            <h1 class="logo">
+              <a href="/">Usman Musa</a>
+            </h1>
+          </div>
+          
+          <div class="head_right">
+            <a href="https://hub.docker.com/u/usmanmusa" class="link_0">
+              <img src="./static/media/icon-docker.png" alt="docker logo">
+            </a>
+            <a class="link_1">|</a>
+            <a href="https://github.com/usmanmusa1920" class="link_2">Github</a>
+            <a href="mailto:usmanmusa1920@gmail.com" class="link_3">Email</a>
+            <a onclick="light_mode()" class="light">&#9728;</a>
+            <a onclick="dark_mode()" class="dark">&#127769;</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="main">
+        <div class="main_column">
+          <span class="main_column_inn">
+            <div class="mini">
+              <div class="mini_column">
+                <h1>Usman Musa</h1>
+                <p>Looking forward to IT and software development sector, to work, change and innovate creative digital system together with IT ally.</p>
+              </div>
+            </div>
+          </span>
+          
+          <div class="box">
+            <h1><i>Hi 👋 I'm Usman!</i></h1>
+            <div class="box_in">
+              <img src="./static/media/usman 2.jpg" alt="Usman picture">
+              <p onclick="setTimeout(fdk_func_timeout, 1000)">Nascent Projects <a onclick="fdk_func()" class="black">F D K</a></p>
+              <p class="fdk"><a href="https://flask-unity.readthedocs.io" class="black">Flask-Unity</a>, <a href="https://dipense.readthedocs.io" class="black">DiPense</a>, <a href="https://kyaah.readthedocs.io" class="black">Kyaah</a></p>
+            </div>
+          </div>
+          <div class="three_col">
+            <div>
+              <p>Making <b>F D K</b> flexible and friendly to IT community. Review 💻 fix 🛠️ push 🚀 and release 🔗 new <b>✨v✨</b> out there!</p>
+            </div>
+          </div>
+
+          <div class="me">
+            <img src="./static/media/back.jpg" alt="back image">
+            <div>
+              <p>
+                <i>Importing module of impossible into a script, might mess up the syntax.</i>
+              </p>
+            </div>
+          </div>
+          
+          <div class="three_col">
+            <div>
+              <h1>About</h1>
+              <br>
+              <p>I'm <strong>Usman</strong>, an IT enthusiast, abstracting away complexity for developers and <strong>IT</strong> ninjas, in software & web development, and other IT related stuffs.</p>
+              <br>
+              
+              <p>Usman is a certified ✅ and graduate &#127891; student of <b>3MTT Nigeria</b> under <b>software development</b> by applied learning cluster (training provider) <b>Jigawa State Institute of Information Technology (JSIIT)</b>, and online training provider <b>AltSchool Africa</b>.</p>
+              <br>
+
+              <p>
+                Most of my snippets are python base, I also use shell script for automating daily task, in other to make myself <strong>DRY</strong>. Tech stacks that I use most: <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>Python</b>, <b>Django</b>, <b>Git</b>.
+                <p class="social_icons">
+                  <!-- get more icons fonts from https://icons8.com/icons/set/email -->
+                  <a href="mailto:usmanmusa1920@gmail.com" class="black">
+                    <img src="./static/media/icon-mail.png" alt="mail logo">
+                  </a>
+
+                  <a href="https://www.linkedin.com/in/usmanmusa1920" class="black">
+                    <img src="./static/media/icon-linkedin.png" alt="linkedin logo">
+                  </a>
+                  
+                  <a href="https://github.com/usmanmusa1920" class="black">
+                    <img src="./static/media/icon-github.png" alt="github logo">
+                  </a>
+                </p>
+              </p>
+              <br>
+              <br>
+            </div>
+            
+            <div>
+              <h1>Education</h1>
+              <br>
+              <p>
+                <strong>Federal University Gusau (FUG)</strong>
+                <br>
+                Zamfara State, Nigeria
+              </p>
+              <br>
+              <h1>&#127891; &#127891; &#127891;</h1>
+              <br>
+              <b>Major/Course Of Study</b>
+              <br>
+              B.Sc Physics
+              <br>
+              <br>
+              <p><strong>Year:</strong> 2021</p>
+              <hr style="display:flex; width:50%;">
+              <p><strong>AltSchool Africa</strong></p>
+              <h1>&#127891;  &#127891;  &#127891;</h1>
+              <p>Software development <i>(2023 - 2024)</i></p>
+            </div>
+          </div>
+          <br>
+          
+          <div class="three_col">
+            <div>
+              <h1>Projects</h1>
+              <br>
+              <p>Here are some of my projects, find out more on my <strong><a href="https://github.com/usmanmusa1920" class="black">github</a></strong> and <strong><a href="https://hub.docker.com/u/usmanmusa" class="black">docker</a></strong> repository!</p>
+              <br>
+              <br>
+            </div>
+          </div>
+          
+          <div class="three_col">
+            <div>
+              <h1>
+                <a href="https://flask-unity.readthedocs.io" class="black">Flask-Unity</a>
+              </h1>
+              <p>An extension of flask web framework that erase the complexity of structuring flask project blueprint, packages, connecting other flask extensions, database migrations, and other annoying stuffs.</p>
+              <br>
+              <br>
+            </div>
+            
+            <div>
+              <h1>
+                <a href="https://dipense.readthedocs.io" class="black">DiPense</a>
+              </h1>
+              <p>An OSINT tool for IT ninjas, for reconnoitring phone number, ip address, DNS, and others. To be honest the application is free, beware with me your intent matter.</p>
+              <br>
+              <br>
+            </div>
+          </div>
+          <br>
+          
+          <div class="three_col">
+            <div>
+              <h1>
+                <a href="https://kyaah.readthedocs.io" class="black">Kyaah</a>
+              </h1>
+              <p>Kyaah abstract away cognitive over-head of sending SMTP mail, together with other mailing operations things like, mail with file, tokens etc.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          
+          <div class="three_col">
+            <div>
+              <h1>
+                <a href="https://fugus.onrender.com" class="black">Department</a>
+              </h1>
+              <p>Our departmental (physics) website, for we student of <b>Federal University Gusau (FUG)</b> of the session (2019 & 2020) both stream A & B students` showing our faces and short bio for history.</p>
+              <br>
+              <br>
+            </div>
+            
+            <div>
+              <h1>
+                <a href="https://rgbpy.readthedocs.io" class="black">RGBpy</a>
+              </h1>
+              <p>RGBpy it is python text-style ✅ not python textile! 🤔 it actually print your text on terminal in different kind of colors, including logging.</p>
+              <br>
+              <br>
+            </div>
+          </div>
+          <br>
+          
+          <div class="three_col">
+            <div>
+              <h1>
+                <a href="https://cgpa-calc.onrender.com" class="black">CGPA/GPA Calc</a>
+              </h1>
+              <p>A user-friendly tool that allows you to input your grades and credit units for each course. It performs the necessary calculations instantly, providing you with an accurate CGPA/GPA result.</p>
+            </div>
+          </div>
+          <br>
+          <center><hr></center>
+          <br>
+          
+          <div class="code_div">
+            <div>
+              <pre><button type="button" id="copy-button" class="copy-button">Copy</button>
+<small><code>
+<font>>>> </font><font color="purple">import</font> <font color="purple">kyaah</font>
+
+<font>>>> </font><font color="red">sender = 'my_email@gmail.com'</font>
+<font>>>> </font><font color="#06989A">receiver = ['receiver_1@gmail.com', 'receiver_2@gmail.com']</font>
+<font>>>> </font><font color="blue">passwd = '*********'</font> <font># use app password</font>
+
+<font>>>> </font><font color="purple">server = 'gmail'</font>
+<font>>>> </font><font color="green">subj = f'Hellow world!'</font>
+<font>>>> </font><font color="#06989A">body = 'Lorem ipsum dolor sit amet adipisicing elit, rerum voluptate ipsum volupt.'</font>
+
+<font>>>> </font><font color="green">kyaah.sendMail(</font>
+<font>... </font><font color="green">     from_usr=sender, to_usr=receiver, svr=server, subject=subj, body=body, mail_passwd=passwd</font>
+<font>>>> </font><font color="green">)</font>
+
+<font> </font>
+</code></small></pre>
+            </div>
+          </div>
+          <br>
+          <center><hr></center>
+          <br>
+
+          <div class="photos">
+            <div class="responsive">
+              <div class="gallery">
+                <img src="./static/media/usman 1.jpg" alt="Usman picture">
+                <div class="desc">It`s me in the picture</div>
+              </div>
+            </div>
+            
+            <div class="responsive">
+              <div class="gallery">
+                <img src="./static/media/usman 2.jpg" alt="Usman picture">
+                <div class="desc">It`s me in the picture</div>
+              </div>
+            </div>
+
+            <!-- <div class="responsive">
+              <div class="gallery">
+                <iframe src="https://youtube.com/embed/Zeteh_Y2Pe8" frameborder="0"></iframe>
+                <div class="desc">💻 💻 💻</div>
+              </div>
+            </div> -->
+          </div>
+          
+          <div class="links">
+            <a href="https://github.com/usmanmusa1920">Github</a>
+            <a href="https://hub.docker.com/u/usmanmusa">Docker</a>
+            <a href="https://medium.com/@usmanmusa1920">Medium</a>
+            <a href="https://usmanmusa.onrender.com">Blog</a>
+            <a href="https://usmanmusa.onrender.com/dm/">DM Usman</a>
+            <a href="#">Back To Top</a>
+          </div>
+          <div class="three_col">
+            <div>
+              <p>&copy; <span id="this_year"></span> Usman Musa Website</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
