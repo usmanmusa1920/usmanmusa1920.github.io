@@ -1,4 +1,7 @@
+aiosmtpd==1.4.6
 asgiref==3.7.2
+atpublic==4.1.0
+attrs==23.2.0
 certifi==2024.6.2
 charset-normalizer==3.3.2
 click==8.1.7
@@ -8,7 +11,7 @@ future==1.0.0
 geocoder==1.38.1
 idna==3.7
 itsdangerous==0.24
-kyaah==0.1.13
+kyaah==0.1.16
 ratelim==0.1.6
 requests==2.32.3
 rgbpy==0.0.1

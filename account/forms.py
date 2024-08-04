@@ -4,8 +4,8 @@ from account.models import Messages
 
 
 class MessageForm(forms.ModelForm):
-    """Message form class"""
-    
-    class Meta:
-        model = Messages
-        fields = ['full_name', 'email', 'text_body']
+	"""Message form class"""
+	
+	class Meta:
+		model = Messages
+		fields = ['full_name', 'email', 'text_body']

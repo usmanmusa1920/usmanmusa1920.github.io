@@ -7,7 +7,7 @@ User = get_user_model()
 
 
 class PasswordChangeForm(PasswordChangeForm):
-    """Password change form class"""
-    
-    class Meta:
-        model = User
+	"""Password change form class"""
+	
+	class Meta:
+		model = User

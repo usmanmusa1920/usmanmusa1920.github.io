@@ -1,47 +1,47 @@
 .head_right a{
-  display: none;
+	display: none;
 }
 
 .box{
-  margin-top: 12vh;
-  background:  lightgrey;
-  justify-content: center;
-  padding: 10px 0;
+	margin-top: 12vh;
+	background:  lightgrey;
+	justify-content: center;
+	padding: 10px 0;
 }
 
 .box h1{
-  color: black;
-  margin-top: 0;
-  font-style: normal;
+	color: black;
+	margin-top: 0;
+	font-style: normal;
 }
 
 #auth{
-  background: white;
+	background: white;
 }
 
 #auth h1{
-  color: white;
-  background: green;
-  padding: 5px;
+	color: white;
+	background: green;
+	padding: 5px;
 }
 
 #auth input, #auth textarea{
-  background: lightgrey;
+	background: lightgrey;
 }
 
 #auth p{
-  color: grey;
+	color: grey;
 }
 
 #auth button{
-  background: dodgerblue;
-  cursor: pointer;
+	background: dodgerblue;
+	cursor: pointer;
 }
 
 .main{
-  display: none;
+	display: none;
 }
 
 .footer{
-  margin-top: 10px;
+	margin-top: 10px;
 }

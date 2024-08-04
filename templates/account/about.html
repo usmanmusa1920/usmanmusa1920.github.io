@@ -1,81 +1,76 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block header %}
-  <link rel="stylesheet" href="{% static 'landing.css' %}">
-  <link rel="stylesheet" href="{% static 'about.css' %}">
-  <title>Usman Musa | About</title>
+	<link rel="stylesheet" href="{% static 'landing.css' %}">
+	<link rel="stylesheet" href="{% static 'about.css' %}">
+	<title>Usman Musa | About</title>
 {% endblock header %}
 
 
 {% block main %}
-  <div class="box">
-    <h1>About me!</h1>
-    <div class="box_in">
-      <img src="{% static 'media/usman 2.jpg' %}" alt="">
-    </div>
-  </div>
+	<div class="box">
+		<h1>About me!</h1>
+		<div class="box_in">
+			<img src="{% static 'media/usman 2.jpg' %}" alt="">
+		</div>
+	</div>
 
-  <div class="paragraph">
-    <p>I'm <strong>Usman</strong>, an IT enthusiast, abstracting away complexity for developers and <strong>IT</strong> ninjas, in software & web development, and other IT related stuffs.</p>
+	<div class="paragraph">
+		<p>I'm <strong>Usman</strong>, an IT enthusiast, abstracting away complexity for developers and <strong>IT</strong> ninjas, in software & web development, and other IT related stuffs. Certified ✅ <strong>3MTT Nigeria</strong> fellow under <strong>Software Development</strong>.</p>
 
-    <p>Usman is a certified ✅ and graduate &#127891; student of <strong>3MTT Nigeria</strong> under <strong>software development</strong> by applied learning cluster (training provider) <strong>Jigawa State Institute of Information Technology (JSIIT)</strong>, and online training provider <strong>AltSchool Africa</strong>.</p>
+		<p>
+			Most of my snippets are python base, I also use shell script for automating daily task, in other to make myself <strong>DRY</strong>. Tech stacks that I use most: <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>Python</b>, <b>Django</b>, <b>Git</b>, <b>Linux</b>.
+			<br>
+			<br>
+			<strong><a href="{% url 'auth:direct_message' %}">Get In Touch</a></strong>
+			<strong><a href="https://linkedin.com/in/usmanmusa1920">LinkedIn</a></strong>
+			<strong><a href="https://medium.com/@usmanmusa1920">Medium</a></strong>
+			<strong><a href="https://github.com/usmanmusa1920">Github</a></strong>
+		</p>
+	
+		<h3>Education</h3>
+		<p>
+			<strong>Federal University Gusau (FUG)</strong> Zamfara State, Nigeria.
+			<br>
+			<b>Major/Course Of Study:</b>
+			<br>
+			B.Sc Physics
+			<br>
+			<b>Year:</b>
+			<br>
+			2021
+		</p>
 
-    <p>
-      Most of my snippets are python base, I also use shell script for automating daily task, in other to make myself <strong>DRY</strong>. Tech stacks that I use most: <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>Python</b>, <b>Django</b>, <b>Git</b>.
-      <br>
-      <br>
-      <strong><a href="{% url 'auth:direct_message' %}">Get In Touch</a></strong>
-      <strong><a href="https://www.linkedin.com/in/usmanmusa1920">LinkedIn</a></strong>
-      <strong><a href="https://github.com/usmanmusa1920">Github</a></strong>
-    </p>
-    
-    <h3>Education</h3>
-    <p>
-      <strong>Federal University Gusau (FUG)</strong> Zamfara State, Nigeria.
-      <br>
-      <b>Major/Course Of Study:</b>
-      <br>
-      B.Sc Physics
-      <br>
-      <b>Year:</b>
-      <br>
-      2021
-      <br>
-      <br>
-      <strong>AltSchool Africa</strong>
-      <br>
-      Software development <i>(2023 - 2024)</i>
-    </p>
+		<h3>Projects</h3>
+		<p>Here are some of my projects, find out more on my <strong><a href="https://github.com/usmanmusa1920">gitHub</a></strong> and <strong><a href="https://hub.docker.com/u/usmanmusa">docker</a></strong> repository!</p>
 
-    <h3>Projects</h3>
-    <p>Here are some of my projects, find out more on my <strong><a href="https://github.com/usmanmusa1920">gitHub</a></strong> and <strong><a href="https://hub.docker.com/u/usmanmusa">docker</a></strong> repository!</p>
+		<p>
+			<b><a href="http://flask-uinty.readthedocs.io">Flask-Unity</a></strong></b>
+			<br>
+			An extension of flask web framework that erase the complexity of structuring flask project blueprint, packages, connecting other flask extensions, database migrations, and other annoying stuffs.
+		</p>
 
-    <p>
-      <b><a href="http://flask-uinty.readthedocs.io">Flask-Unity</a></strong></b>
-      <br>
-      An extension of flask web framework that erase the complexity of structuring flask project blueprint, packages, connecting other flask extensions, database migrations, and other annoying stuffs.
-    </p>
+		<p>
+			<b><a href="http://dipense.readthedocs.io">DiPense</a></strong></b>
+			<br>
+			An OSINT tool for IT ninjas, for reconnoitring phone number, ip address, DNS, and others. To be honest the application is free, beware with me your intent matter.
+		</p>
 
-    <p>
-      <b><a href="http://dipense.readthedocs.io">DiPense</a></strong></b>
-      <br>
-      An OSINT tool for IT ninjas, for reconnoitring phone number, ip address, DNS, and others. To be honest the application is free, beware with me your intent matter.
-    </p>
+		<p>
+			<b><a href="http://kyaah.readthedocs.io">Kyaah</a></strong></b>
+			<br>
+			Kyaah abstract away cognitive over-head of sending SMTP mail, together with other mailing operations things like, mail with file, tokens etc.
+		</p>
 
-    <p>
-      <b><a href="http://kyaah.readthedocs.io">Kyaah</a></strong></b>
-      <br>
-      Kyaah abstract away cognitive over-head of sending SMTP mail, together with other mailing operations things like, mail with file, tokens etc.
-    </p>
-
-    <div class="links">
-      <p>
-        <a href="https://usmanmusa1920.github.io">Main site</a>
-        <a href="https://www.linkedin.com/in/usmanmusa1920">LinkedIn</a>
-        <a href="https://medium.com/@usmanmusa1920">Medium</a>
-        <a href="{% url 'auth:direct_message' %}">Direct Message</a>
-      </p>
-    </div>
-  </div>
+		<div class="links">
+			<p>
+				<a href="https://usmanmusa1920.github.io">Main site</a>
+				<a href="https://linkedin.com/in/usmanmusa1920">LinkedIn</a>
+				<a href="https://medium.com/@usmanmusa1920">Medium</a>
+				<a href="{% url 'auth:direct_message' %}">Direct Message</a>
+			</p>
+		</div>
+	</div>
 {% endblock main %}
