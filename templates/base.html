@@ -28,11 +28,11 @@
 							<button type="submit">Search</button>
 						</form>
 
-						<a href="https://hub.docker.com/u/usmanmusa" class="link_0">
-							<img src="{% static 'media/icon-docker.png' %}" alt="docker logo">
+						<a href="https://twitter.com/usmanmusa1920" class="link_0">
+							<img src="{% static 'media/icon-twitter.png' %}" alt="twitter logo">
 						</a>
 						<a class="link_1">|</a>
-						<a href="https://github.com/usmanmusa1920" class="link_2">Github</a>
+						<a href="https://linkedin.com/in/usmanmusa1920" class="link_2">LinkedIn</a>
 						<a href="{% url 'auth:direct_message' %}" class="link_3">DM</a>
 
 						<a onclick="show_menu()" id="menu_img">
@@ -108,6 +108,8 @@
 								<p><a href="{% url 'blog:create_article' %}">Create article</a></p>
 							{% endif %}
 							<p><a href="{% url 'auth:about' %}">About</a></p>
+							<p><a href="https://twitter.com/usmanmusa1920">Twitter</a></p>
+							<p><a href="https://linkedin.com/in/usmanmusa1920">linkedIn</a></p>
 							<p><a href="https://github.com/usmanmusa1920">Github</a></p>
 							<p><a href="https://medium.com/@usmanmusa1920">Medium</a></p>
 							<p><a href="https://hub.docker.com/u/usmanmusa">Docker</a></p>
@@ -168,9 +170,9 @@
 					{% block main %} <!-- block content --> {% endblock main %}
 					<div class="three_col">
 						<div>
-							<img src="{% static 'media/google-map.webp' %}" alt="">
+							<img src="{% static 'media/banner.png' %}" alt="">
 							<br>
-							<p>Your current location is <a class="peace"><b>some where in the world</b></a></p>
+							<p>Usman <a class="peace"><b>banner</b></a> up here!</p>
 						</div>
 					</div>
 				</div>
@@ -192,7 +194,7 @@
 					</form> -->
 				</div>
 				<div class="foot_right">
-					<a href="#">Back To Top</a>
+					<a href="https://twitter.com/usmanmusa1920">Twitter</a>
 					<a href="{% url 'auth:direct_message' %}">Direct Message</a>
 					<p>&copy; {{general_context.gen_con_the_year}} Usman Musa Website</p>
 				</div>

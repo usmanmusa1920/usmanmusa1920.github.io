@@ -11,7 +11,7 @@ future==1.0.0
 geocoder==1.38.1
 idna==3.7
 itsdangerous==0.24
-kyaah==0.1.16
+kyaah==0.1.17
 ratelim==0.1.6
 requests==2.32.3
 rgbpy==0.0.1

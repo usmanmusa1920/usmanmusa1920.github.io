@@ -411,7 +411,7 @@ body{
 
 /* the below is banner customisation which will enable to show up the image, since if we use it in the blogs.css directly, it won't work */
 .banner{
-	background: url('/static/media/laptop.jpeg') no-repeat center center/cover;
+	background: url('/static/media/ice-place.jpg') no-repeat center center/cover;
 	width: 100%;
 	min-height: 50vh;
 	margin-top: 12vh;
@@ -432,6 +432,11 @@ body{
 
 .banner_column h1{
 	font-size: 4rem;
+	color: white;
+}
+
+.banner_column p{
+	color: white;
 }
 
 @media only screen and (max-width: 700px){
@@ -639,8 +644,15 @@ body{
 }
 
 .three_col img{
-	width: 90%;
+	width: 50%;
 	height: auto;
+	border-radius: 10px;
+}
+
+@media only screen and (max-width: 700px){
+	.three_col img{
+		width: 90%;
+	}
 }
 
 .three_col p{

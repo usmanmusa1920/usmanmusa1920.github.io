@@ -10,23 +10,43 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
 		<title>Usman Musa</title>
 		<script>
-			document.addEventListener('DOMContentLoaded', (event) => {
-				document.querySelectorAll('pre code').forEach((block) => {
+			document.addEventListener("DOMContentLoaded", (event) => {
+				document.querySelectorAll("pre code").forEach((block) => {
 					hljs.highlightBlock(block);
-					const copyButton = document.getElementById('copy-button');
-					copyButton.style.display = 'block';
-					copyButton.className = 'copy-button';
-					copyButton.addEventListener('click', () => {
-						const textArea = document.createElement('textarea');
+					const copyButton = document.getElementById("copy-button");
+					copyButton.style.display = "block";
+					copyButton.className = "copy-button";
+					copyButton.addEventListener("click", () => {
+						const textArea = document.createElement("textarea");
 						textArea.value = block.innerText;
 						document.body.appendChild(textArea);
 						textArea.select();
-						document.execCommand('copy');
+						document.execCommand("copy");
 						document.body.removeChild(textArea);
-						copyButton.innerText = 'Copied to clipboard!';
+						copyButton.innerText = "Copied to clipboard!";
 					});
 				});
 			});
+			
+			// // wake direct-message & siwes-portal site to live!
+			// const urls = ["https://usmanmusa.onrender.com/direct/message/", "https://siwesportal.onrender.com"];
+			// const xhr = new XMLHttpRequest();
+
+			// for (i = 0; i < urls.length; i++){
+			// 	xhr.open("GET", urls[parseInt(i)], true);
+			// 	xhr.onreadystatechange = function () {
+			// 		if (xhr.readyState === 4) { // Request is complete
+			// 			if (xhr.status === 200) {
+			// 				// alert("Success")
+			// 				// console.log("Success:", JSON.parse(xhr.responseText));
+			// 			} else {
+			// 				// alert("Error")
+			// 				// console.error("Error:", xhr.statusText);
+			// 			};
+			// 		};
+			// 	};
+			// 	xhr.send();
+			// };
 		</script>
 	</head>
 
@@ -35,17 +55,13 @@
 			<div class="header">
 				<div class="header_col">
 					<div class="head_left">
-						<h1 class="logo">
-							<a href="/">Usman Musa</a>
-						</h1>
+						<h1 class="logo"><a href="/">Usman Musa</a></h1>
 					</div>
 					
 					<div class="head_right">
-						<a href="https://hub.docker.com/u/usmanmusa" class="link_0">
-							<img src="./static/media/icon-docker.png" alt="docker logo">
-						</a>
+						<a href="https://twitter.com/usmanmusa1920" class="link_0"><img src="./static/media/icon-twitter.png" alt="twitter logo"></a>
 						<a class="link_1">|</a>
-						<a href="https://github.com/usmanmusa1920" class="link_2">Github</a>
+						<a href="https://linkedin.com/in/usmanmusa1920" class="link_2">LinkedIn</a>
 						<a href="mailto:usmanmusa1920@gmail.com" class="link_3">Email</a>
 						<a onclick="light_mode()" class="light">&#9728;</a>
 						<a onclick="dark_mode()" class="dark">&#127769;</a>
@@ -68,7 +84,7 @@
 						<h1><i>Hi 👋 I'm Usman!</i></h1>
 						<div class="box_in">
 							<img src="./static/media/usman 2.jpg" alt="Usman picture">
-							<p onclick="setTimeout(fdk_func_timeout, 1000)">Nascent Projects <a onclick="fdk_func()" class="black">F D K</a></p>
+							<p onclick="setTimeout(fdk_func_timeout, 1000)" style="margin-top: 3px;">Nascent Projects <a onclick="fdk_func()" class="black">FDK</a></p>
 							<p class="fdk"><a href="https://flask-unity.readthedocs.io" class="black">Flask-Unity</a>, <a href="https://dipense.readthedocs.io" class="black">DiPense</a>, <a href="https://kyaah.readthedocs.io" class="black">Kyaah</a></p>
 						</div>
 					</div>
@@ -78,42 +94,24 @@
 						</div>
 					</div>
 
-					<div class="me">
-						<img src="./static/media/terminal.jpeg" alt="back image">
-						<div>
-							<p>
-								<i>Importing module of impossible into a script, might mess up the syntax.</i>
-							</p>
-						</div>
+					<div class="short_intro">
+						<img src="./static/media/banner.png" alt="banner image">
+						<div><p><i>Importing module of impossible into a script, might mess up the syntax.</i></p></div>
 					</div>
 					
 					<div class="three_col">
 						<div>
 							<h1>About</h1>
 							<br>
-							<p>I'm <strong>Usman</strong>, an IT enthusiast, abstracting away complexity for developers and <strong>IT</strong> ninjas, in software & web development, and other IT related stuffs. Certified ✅ <b>3MTT Nigeria</b> fellow under <b>Software Development</b>.</p>
+							<p>I'm <strong>Usman</strong>, an IT enthusiast, abstracting away complexity for developers and <strong>IT</strong> ninjas, in software & web development, and other IT related stuffs. Certified ✅ <b>3MTT</b> fellow under <b>Software Development</b>.</p>
 							<br>
 
-							<p>
-								Most of my snippets are python base, I also use shell script for automating daily task, in other to make myself <strong>DRY</strong>. Tech stacks that I use most: <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>Python</b>, <b>Django</b>, <b>Git</b>, <b>Linux</b>.
-								<p class="social_icons">
-									<!-- get more icons fonts from https://icons8.com/icons/set/email -->
-									<a href="mailto:usmanmusa1920@gmail.com" class="black">
-										<img src="./static/media/icon-mail.png" alt="mail logo">
-									</a>
-
-									<a href="https://linkedin.com/in/usmanmusa1920" class="black">
-										<img src="./static/media/icon-linkedin.png" alt="linkedin logo">
-									</a>
-
-									<a href="https://medium.com/@usmanmusa1920" class="black">
-										<img src="./static/media/icon-medium.png" alt="medium logo">
-									</a>
-									
-									<a href="https://github.com/usmanmusa1920" class="black">
-										<img src="./static/media/icon-github.png" alt="github logo">
-									</a>
-								</p>
+							<p>Most of my snippets are python base, I also use shell script for automating daily task, in other to make myself <strong>DRY</strong>. Tech stacks that I use most: <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>Python</b>, <b>Django</b>, <b>Git</b>, <b>Linux</b>.</p>
+							<p class="social_icons">
+								<!-- get more icons fonts from https://icons8.com/icons/new -->
+								<a href="mailto:usmanmusa1920@gmail.com" class="black"><img src="./static/media/icon-email.png" alt="mail logo"></a>
+								<a href="https://twitter.com/usmanmusa1920" class="black"><img src="./static/media/icon-twitter.png" alt="twitter logo"></a>
+								<a href="https://linkedin.com/in/usmanmusa1920" class="black"><img src="./static/media/icon-linkedin.png" alt="linkedin logo"></a>
 							</p>
 							<br>
 							<br>
@@ -138,7 +136,6 @@
 							<p><strong>Year:</strong> 2021</p>
 						</div>
 					</div>
-					<br>
 					
 					<div class="three_col">
 						<div>
@@ -152,68 +149,51 @@
 					
 					<div class="three_col">
 						<div>
-							<h1>
-								<a href="https://flask-unity.readthedocs.io" class="black">Flask-Unity</a>
-							</h1>
+							<h1><a href="https://flask-unity.readthedocs.io" class="black">Flask-Unity</a></h1>
 							<p>An extension of flask web framework that erase the complexity of structuring flask project blueprint, packages, connecting other flask extensions, database migrations, and other annoying stuffs.</p>
 							<br>
 							<br>
 						</div>
 						
 						<div>
-							<h1>
-								<a href="https://dipense.readthedocs.io" class="black">DiPense</a>
-							</h1>
+							<h1><a href="https://dipense.readthedocs.io" class="black">DiPense</a></h1>
 							<p>An OSINT tool for IT ninjas, for reconnoitring phone number, ip address, DNS, and others. To be honest the application is free, beware with me your intent matter.</p>
 							<br>
 							<br>
 						</div>
 					</div>
-					<br>
 					
 					<div class="three_col">
 						<div>
-							<h1>
-								<a href="https://kyaah.readthedocs.io" class="black">Kyaah</a>
-							</h1>
+							<h1><a href="https://kyaah.readthedocs.io" class="black">Kyaah</a></h1>
 							<p>Kyaah abstract away cognitive over-head of sending SMTP mail, together with other mailing operations things like, mail with file, tokens etc.</p>
 						</div>
 					</div>
 					<br>
-					<br>
 					
 					<div class="three_col">
 						<div>
-							<h1>
-								<a href="https://fugus.onrender.com" class="black">Department</a>
-							</h1>
-							<p>Our departmental (physics) website, for we student of <b>Federal University Gusau (FUG)</b> of the session (2019 & 2020) both stream A & B students` showing our faces and short bio for history.</p>
+							<h1><a href="https://fugus.onrender.com" class="black">Department</a></h1>
+							<p>Our departmental (physics) website, for we student of <b>Federal University Gusau (FUG)</b> of the session (2019 & 2020) both stream A & B students` where our educational materials are documented, showing our faces and short bio for history.</p>
 							<br>
 							<br>
 						</div>
 						
 						<div>
-							<h1>
-								<a href="https://rgbpy.readthedocs.io" class="black">RGBpy</a>
-							</h1>
+							<h1><a href="https://rgbpy.readthedocs.io" class="black">RGBpy</a></h1>
 							<p>RGBpy it is python text-style ✅ not python textile! 🤔 it actually print your text on terminal in different kind of colors, including logging.</p>
 							<br>
 							<br>
 						</div>
 					</div>
-					<br>
 					
 					<div class="three_col">
 						<div>
-							<h1>
-								<a href="https://cgpa-calc.onrender.com" class="black">CGPA/GPA Calc</a>
-							</h1>
+							<h1><a href="https://cgpa-calc.onrender.com" class="black">CGPA/GPA Calc</a></h1>
 							<p>A user-friendly tool that allows you to input your grades and credit units for each course. It performs the necessary calculations instantly, providing you with an accurate CGPA/GPA result.</p>
 						</div>
 					</div>
-					<br>
 					<center><hr></center>
-					<br>
 					
 					<div class="code_div">
 						<div>
@@ -234,42 +214,27 @@
 </code></small></pre>
 						</div>
 					</div>
-					<br>
-					<!-- <center><hr></center>
-					<br>
+					<center><hr></center>
 
-					<div class="photos">
-						<div class="responsive">
-							<div class="gallery">
-								<img src="./static/media/usman 1.jpg" alt="Usman picture">
-								<div class="desc">It`s me in the picture</div>
-							</div>
-						</div>
-						
-						<div class="responsive">
-							<div class="gallery">
-								<img src="./static/media/usman 2.jpg" alt="Usman picture">
-								<div class="desc">It`s me in the picture</div>
-							</div>
-						</div>
-
-						<div class="responsive">
-							<div class="gallery">
-								<iframe src="https://youtube.com/embed/Zeteh_Y2Pe8" frameborder="0"></iframe>
-								<div class="desc">💻 💻 💻</div>
-							</div>
-						</div>
+					<!-- <div class="short_intro">
+						<iframe src="https://youtube.com/embed/wSU0A7k0qsQ" frameborder="0"></iframe>
+						<div><p><i>YouTube video of mine! showing a rove on vs-code and terminal with kyaah.</i></p></div>
 					</div> -->
+
+					<!-- Read more docs: https://developer.x.com/en/docs/x-for-websites/timelines/overview -->
+					<!-- <a class="twitter-timeline" href="https://twitter.com/UsmanMusa1920?ref_src=twsrc%5Etfw">Tweets by UsmanMusa1920</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+
+					<!-- Read more docs: https://developers.tiktok.com/doc/embed-creator-profiles?enter_method=left_navigation -->
+					<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@usmanmusa1920" data-unique-id="usmanmusa1920" data-embed-type="creator" style="max-width: 780px; min-width: 288px;" > <section> <a target="_blank" href="https://www.tiktok.com/@usmanmusa1920?refer=creator_embed">Tiktok @UsmanMusa1920</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
 					
 					<div class="links">
-						<a href="https://linkedin.com/in/usmanmusa1920">LinkedIn</a>
+						<a href="https://twitter.com/usmanmusa1920">Twitter</a>
+						<a href="https://github.com/usmanmusa1920">Github</a>
 						<a href="https://medium.com/@usmanmusa1920">Medium</a>
 						<a href="https://usmanmusa.onrender.com/direct/message/">Direct Message</a>
 					</div>
 					<div class="three_col">
-						<div>
-							<p>&copy; <span id="this_year"></span> Usman Musa Website</p>
-						</div>
+						<div><p>&copy; <span id="this_year"></span> Usman Musa Website</p></div>
 					</div>
 				</div>
 			</div>
