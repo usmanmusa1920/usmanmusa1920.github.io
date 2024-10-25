@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  usman_web:
+    build: .
+    volumes:
+      - .:/app
+      - ./static:/app/static  # Persist static files
+      - ./media:/app/media    # Persist media files (if applicable)
+    expose:
+      - "8000"  # Exposing Gunicorn's port, to be available to other services within the Docker network, but it does not expose it to the host machine. The port is only accessible by other containers.
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"  # Map port 80 on the host to port 80 on the Nginx container
+      - "88:80"  # Map port 88 on the host to port 80 on the Nginx container
+    volumes:
+      - ./nginx:/etc/nginx/conf.d  # Mount your Nginx config
+      - ./static:/app/static  # Ensure Nginx can serve static files
+      - ./media:/app/media    # Ensure Nginx can serve media files
+    depends_on:
+      - usman_web  # Nginx depends on usman_web, but not the other way around

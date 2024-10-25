@@ -24,13 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-p$fuxyfw&y$lbc&+a#-byx!5-!=k#iw)4i^!f#%h0lzv2uxp7-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-if os.getenv('USER') and os.getenv('USER') == 'usman':
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-else:
-    ALLOWED_HOSTS = ['usmanmusa.onrender.com']
-    CSRF_TRUSTED_ORIGINS = ['https://usmanmusa.onrender.com']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
     
     
 # Application definition
@@ -126,9 +121,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static') # for production (server)
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # for deployment (local)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') # for production (server)
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # for deployment (local)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # `LOGIN_URL` is the url path that a user will be directed when he/she is about to go to a route that required user to be logged-in, but at that moment the user is not logged-in.
 LOGIN_URL = 'auth:login'
