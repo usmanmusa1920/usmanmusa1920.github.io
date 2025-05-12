@@ -392,6 +392,10 @@ body{
     text-decoration: none;
 }
 
+.links a:hover{
+    text-decoration: underline solid 3px;
+}
+
 .links a img{
     width: 30px;
     height: 30px;
